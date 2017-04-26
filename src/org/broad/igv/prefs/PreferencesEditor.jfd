@@ -2972,1939 +2972,6 @@
                <class>javax.swing.JScrollPane</class>
               </object>
               <void property="name">
-               <string>panel20</string>
-              </void>
-              <void method="add">
-               <object class="com.jformdesigner.model.FormContainer">
-                <string>javax.swing.JPanel</string>
-                <object class="com.jformdesigner.model.FormLayoutManager">
-                 <class>javax.swing.BoxLayout</class>
-                 <void method="setProperty">
-                  <string>axis</string>
-                  <int>1</int>
-                 </void>
-                </object>
-                <void property="name">
-                 <string>alignmentPanel</string>
-                </void>
-                <void method="add">
-                 <object class="com.jformdesigner.model.FormContainer">
-                  <string>javax.swing.JPanel</string>
-                  <object class="com.jformdesigner.model.FormLayoutManager">
-                   <class>java.awt.FlowLayout</class>
-                   <void method="setProperty">
-                    <string>alignment</string>
-                    <int>0</int>
-                   </void>
-                  </object>
-                  <void method="setProperty">
-                   <string>border</string>
-                   <object class="javax.swing.border.TitledBorder">
-                    <string>Track Display Options</string>
-                   </object>
-                  </void>
-                  <void property="name">
-                   <string>jPanel11</string>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormContainer">
-                    <string>javax.swing.JPanel</string>
-                    <object class="com.jformdesigner.model.FormLayoutManager">
-                     <class>java.awt.FlowLayout</class>
-                     <void method="setProperty">
-                      <string>alignment</string>
-                      <int>0</int>
-                     </void>
-                    </object>
-                    <void property="name">
-                     <string>panel32</string>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JLabel</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>On initial load show:</string>
-                      </void>
-                      <void property="name">
-                       <string>label39</string>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Alignment Track</string>
-                      </void>
-                      <void method="setProperty">
-                       <string>horizontalAlignment</string>
-                       <int>2</int>
-                      </void>
-                      <void property="name">
-                       <string>showAlignmentTrackCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>showAlignmentTrackCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Coverage Track</string>
-                      </void>
-                      <void property="name">
-                       <string>showCovTrackCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>showCovTrackCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Splice Junction Track</string>
-                      </void>
-                      <void property="name">
-                       <string>showJunctionTrackCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>showJunctionTrackCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                 </object>
-                </void>
-                <void method="add">
-                 <object class="com.jformdesigner.model.FormContainer">
-                  <string>javax.swing.JPanel</string>
-                  <object class="com.jformdesigner.model.FormLayoutManager">
-                   <class>javax.swing.BoxLayout</class>
-                   <void method="setProperty">
-                    <string>axis</string>
-                    <int>1</int>
-                   </void>
-                  </object>
-                  <void method="setProperty">
-                   <string>border</string>
-                   <object class="javax.swing.border.TitledBorder">
-                    <string>Alignment Track Options</string>
-                   </object>
-                  </void>
-                  <void property="name">
-                   <string>jPanel12</string>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormContainer">
-                    <string>javax.swing.JPanel</string>
-                    <object class="com.jformdesigner.model.FormLayoutManager">
-                     <class>java.awt.GridLayout</class>
-                     <void method="setProperty">
-                      <string>rows</string>
-                      <int>6</int>
-                     </void>
-                    </object>
-                    <void property="name">
-                     <string>panel13</string>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.FlowLayout</class>
-                       <void method="setProperty">
-                        <string>alignment</string>
-                        <int>0</int>
-                       </void>
-                      </object>
-                      <void property="name">
-                       <string>panel31</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Visibility range threshold (kb):</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>250</int>
-                          <int>16</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>jLabel11</string>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>jTextField1</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>80</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>samMaxWindowSizeField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>samMaxWindowSizeFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samMaxWindowSizeFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>&lt;html&gt;&lt;i&gt;Range at which alignments become visible</string>
-                        </void>
-                        <void property="name">
-                         <string>jLabel12</string>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.FlowLayout</class>
-                       <void method="setProperty">
-                        <string>alignment</string>
-                        <int>0</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>hgap</string>
-                        <int>0</int>
-                       </void>
-                      </object>
-                      <void method="setProperty">
-                       <string>border</string>
-                       <object class="com.jformdesigner.model.FormObject" field="NULL_VALUE"/>
-                      </void>
-                      <void property="name">
-                       <string>panel4</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JCheckBox</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Downsample reads</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>horizontalAlignment</string>
-                         <int>2</int>
-                        </void>
-                        <void property="name">
-                         <string>downsampleReadsCB</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>downsampleReadsCBActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>com.jformdesigner.designer.wrapper.HSpacer</string>
-                        <void property="name">
-                         <string>hSpacer3</string>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Max read count:</string>
-                        </void>
-                        <void property="name">
-                         <string>label23</string>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>100</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>samDownsampleCountField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samDownsampleCountFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>samDownsampleCountFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>per window size (bases):</string>
-                        </void>
-                        <void property="name">
-                         <string>jLabel13</string>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>jTextField1</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>100</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>samSamplingWindowField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samSamplingWindowFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>samSamplingWindowFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.FlowLayout</class>
-                       <void method="setProperty">
-                        <string>alignment</string>
-                        <int>0</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>hgap</string>
-                        <int>0</int>
-                       </void>
-                      </object>
-                      <void method="setProperty">
-                       <string>border</string>
-                       <object class="com.jformdesigner.model.FormObject" field="NULL_VALUE"/>
-                      </void>
-                      <void property="name">
-                       <string>panel11</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JCheckBox</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Shade mismatched bases by quality:</string>
-                        </void>
-                        <void property="name">
-                         <string>samShadeMismatchedBaseCB</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samShadeMismatchedBaseCBActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>0</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>samMinBaseQualityField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samMinBaseQualityFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>samMinBaseQualityFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>to</string>
-                        </void>
-                        <void property="name">
-                         <string>label2</string>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>0</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>samMaxBaseQualityField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samMaxBaseQualityFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>samMaxBaseQualityFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.FlowLayout</class>
-                       <void method="setProperty">
-                        <string>alignment</string>
-                        <int>0</int>
-                       </void>
-                      </object>
-                      <void property="name">
-                       <string>panel12</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Mapping quality threshold:</string>
-                        </void>
-                        <void property="name">
-                         <string>jLabel15</string>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>0</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>mappingQualityThresholdField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>mappingQualityThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>mappingQualityThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.FlowLayout</class>
-                       <void method="setProperty">
-                        <string>alignment</string>
-                        <int>0</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>hgap</string>
-                        <int>0</int>
-                       </void>
-                      </object>
-                      <void method="setProperty">
-                       <string>border</string>
-                       <object class="com.jformdesigner.model.FormObject" field="NULL_VALUE"/>
-                      </void>
-                      <void property="name">
-                       <string>panel10</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JCheckBox</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Label indels &gt; </string>
-                        </void>
-                        <void property="name">
-                         <string>samFlagIndelsCB</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samFlagIndelsCBActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>26</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>samFlagIndelsThresholdField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samFlagIndelsThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>samFlagIndelsThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samFlagIndelsThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string> bases</string>
-                        </void>
-                        <void property="name">
-                         <string>label31</string>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.FlowLayout</class>
-                       <void method="setProperty">
-                        <string>alignment</string>
-                        <int>0</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>hgap</string>
-                        <int>0</int>
-                       </void>
-                      </object>
-                      <void method="setProperty">
-                       <string>border</string>
-                       <object class="com.jformdesigner.model.FormObject" field="NULL_VALUE"/>
-                      </void>
-                      <void property="name">
-                       <string>panel10clip</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JCheckBox</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Flag clipping &gt; </string>
-                        </void>
-                        <void property="name">
-                         <string>samFlagClippingCB</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samFlagClippingCBActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>26</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>samFlagClippingThresholdField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samFlagClippingThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>samFlagClippingThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>samFlagClippingThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string> bases</string>
-                        </void>
-                        <void property="name">
-                         <string>label31clip</string>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.FlowLayout</class>
-                       <void method="setProperty">
-                        <string>alignment</string>
-                        <int>0</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>hgap</string>
-                        <int>0</int>
-                       </void>
-                      </object>
-                      <void property="name">
-                       <string>panel9</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JCheckBox</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Hide indels &lt; </string>
-                        </void>
-                        <void property="name">
-                         <string>hideIndelsBasesCB</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>hideIndelsBasesCBActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>26</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>hideIndelsBasesField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>hideIndelsBasesFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>hideIndelsBasesFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string> bases</string>
-                        </void>
-                        <void property="name">
-                         <string>label45</string>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormContainer">
-                    <string>javax.swing.JPanel</string>
-                    <object class="com.jformdesigner.model.FormLayoutManager">
-                     <class>java.awt.GridLayout</class>
-                     <void method="setProperty">
-                      <string>columns</string>
-                      <int>1</int>
-                     </void>
-                     <void method="setProperty">
-                      <string>rows</string>
-                      <int>4</int>
-                     </void>
-                    </object>
-                    <void property="name">
-                     <string>panel8</string>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Filter duplicate reads</string>
-                      </void>
-                      <void property="name">
-                       <string>samFilterDuplicatesCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>samShowDuplicatesCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Flag unmapped pairs</string>
-                      </void>
-                      <void property="name">
-                       <string>samFlagUnmappedPairCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>samFlagUnmappedPairCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Filter vendor failed reads</string>
-                      </void>
-                      <void property="name">
-                       <string>filterFailedReadsCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>filterVendorFailedReadsCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Show soft-clipped bases</string>
-                      </void>
-                      <void property="name">
-                       <string>showSoftClippedCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>showSoftClippedCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Filter secondary alignments</string>
-                      </void>
-                      <void property="name">
-                       <string>filterSecondaryAlignmentsCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>filterSecondaryAlignmentsCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Quick consensus mode</string>
-                      </void>
-                      <void property="name">
-                       <string>quickConsensusModeCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>quickConsensusModeCBActionPerformed</string>
-                        <boolean>false</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Show center line</string>
-                      </void>
-                      <void property="name">
-                       <string>showCenterLineCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>showCenterLineCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JCheckBox</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Filter supplementary alignments</string>
-                      </void>
-                      <void property="name">
-                       <string>filterSupplementaryAlignmentsCB</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>filterSupplementaryAlignmentsCBActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormContainer">
-                    <string>javax.swing.JPanel</string>
-                    <object class="com.jformdesigner.model.FormLayoutManager">
-                     <class>java.awt.FlowLayout</class>
-                     <void method="setProperty">
-                      <string>alignment</string>
-                      <int>0</int>
-                     </void>
-                    </object>
-                    <void property="name">
-                     <string>panel31b</string>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JLabel</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Hidden SAM tags:</string>
-                      </void>
-                      <void method="setProperty">
-                       <string>preferredSize</string>
-                       <object class="java.awt.Dimension">
-                        <int>120</int>
-                        <int>16</int>
-                       </object>
-                      </void>
-                      <void property="name">
-                       <string>jLabel11b</string>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JTextField</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>jTextField1b</string>
-                      </void>
-                      <void method="setProperty">
-                       <string>preferredSize</string>
-                       <object class="java.awt.Dimension">
-                        <int>250</int>
-                        <int>28</int>
-                       </object>
-                      </void>
-                      <void property="name">
-                       <string>samHiddenTagsField</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.FocusListener</string>
-                        <string>focusLost</string>
-                        <string>samHiddenTagsFieldFocusLost</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>samHiddenTagsFieldActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                 </object>
-                </void>
-                <void method="add">
-                 <object class="com.jformdesigner.model.FormComponent">
-                  <string>com.jformdesigner.designer.wrapper.VSpacer</string>
-                  <void method="setProperty">
-                   <string>preferredSize</string>
-                   <object class="java.awt.Dimension">
-                    <int>10</int>
-                    <int>5</int>
-                   </object>
-                  </void>
-                  <void property="name">
-                   <string>vSpacer5</string>
-                  </void>
-                 </object>
-                </void>
-                <void method="add">
-                 <object class="com.jformdesigner.model.FormContainer">
-                  <string>javax.swing.JPanel</string>
-                  <object class="com.jformdesigner.model.FormLayoutManager">
-                   <class>java.awt.FlowLayout</class>
-                   <void method="setProperty">
-                    <string>alignment</string>
-                    <int>0</int>
-                   </void>
-                  </object>
-                  <void method="setProperty">
-                   <string>border</string>
-                   <object class="javax.swing.border.TitledBorder">
-                    <string>Coverage Track Options</string>
-                   </object>
-                  </void>
-                  <void property="name">
-                   <string>panel34</string>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormContainer">
-                    <string>javax.swing.JPanel</string>
-                    <object class="com.jformdesigner.model.FormLayoutManager">
-                     <class>java.awt.FlowLayout</class>
-                     <void method="setProperty">
-                      <string>alignment</string>
-                      <int>0</int>
-                     </void>
-                    </object>
-                    <void property="name">
-                     <string>panel5</string>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JLabel</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>Coverage allele-fraction threshold:</string>
-                      </void>
-                      <void property="name">
-                       <string>jLabel26</string>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>javax.swing.JTextField</string>
-                      <void method="setProperty">
-                       <string>text</string>
-                       <string>0</string>
-                      </void>
-                      <void method="setProperty">
-                       <string>preferredSize</string>
-                       <object class="java.awt.Dimension">
-                        <int>60</int>
-                        <int>28</int>
-                       </object>
-                      </void>
-                      <void property="name">
-                       <string>snpThresholdField</string>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.ActionListener</string>
-                        <string>actionPerformed</string>
-                        <string>snpThresholdFieldActionPerformed</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                      <void method="addEvent">
-                       <object class="com.jformdesigner.model.FormEvent">
-                        <string>java.awt.event.FocusListener</string>
-                        <string>focusLost</string>
-                        <string>snpThresholdFieldFocusLost</string>
-                        <boolean>true</boolean>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormComponent">
-                      <string>com.jformdesigner.designer.wrapper.HSpacer</string>
-                      <void method="setProperty">
-                       <string>preferredSize</string>
-                       <object class="java.awt.Dimension">
-                        <int>50</int>
-                        <int>10</int>
-                       </object>
-                      </void>
-                      <void property="name">
-                       <string>hSpacer2</string>
-                      </void>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormComponent">
-                    <string>javax.swing.JCheckBox</string>
-                    <void method="setProperty">
-                     <string>text</string>
-                     <string>Quality weight allele fraction</string>
-                    </void>
-                    <void property="name">
-                     <string>useAlleleQualityCB</string>
-                    </void>
-                    <void method="addEvent">
-                     <object class="com.jformdesigner.model.FormEvent">
-                      <string>java.awt.event.ActionListener</string>
-                      <string>actionPerformed</string>
-                      <string>useAlleleQualityCBActionPerformed</string>
-                      <boolean>true</boolean>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                 </object>
-                </void>
-                <void method="add">
-                 <object class="com.jformdesigner.model.FormContainer">
-                  <string>javax.swing.JPanel</string>
-                  <object class="com.jformdesigner.model.FormLayoutManager">
-                   <class>java.awt.FlowLayout</class>
-                   <void method="setProperty">
-                    <string>alignment</string>
-                    <int>0</int>
-                   </void>
-                  </object>
-                  <void method="setProperty">
-                   <string>border</string>
-                   <object class="javax.swing.border.TitledBorder">
-                    <string>Splice Junction Track Options</string>
-                   </object>
-                  </void>
-                  <void property="name">
-                   <string>panel3</string>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormComponent">
-                    <string>javax.swing.JCheckBox</string>
-                    <void method="setProperty">
-                     <string>text</string>
-                     <string>Show flanking regions</string>
-                    </void>
-                    <void property="name">
-                     <string>showJunctionFlankingRegionsCB</string>
-                    </void>
-                    <void method="addEvent">
-                     <object class="com.jformdesigner.model.FormEvent">
-                      <string>java.awt.event.ActionListener</string>
-                      <string>actionPerformed</string>
-                      <string>showJunctionFlankingRegionsCBActionPerformed</string>
-                      <boolean>true</boolean>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormComponent">
-                    <string>javax.swing.JLabel</string>
-                    <void method="setProperty">
-                     <string>text</string>
-                     <string>Min flanking width:</string>
-                    </void>
-                    <void property="name">
-                     <string>label15</string>
-                    </void>
-                   </object>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormComponent">
-                    <string>javax.swing.JTextField</string>
-                    <void method="setProperty">
-                     <string>preferredSize</string>
-                     <object class="java.awt.Dimension">
-                      <int>80</int>
-                      <int>28</int>
-                     </object>
-                    </void>
-                    <void property="name">
-                     <string>junctionFlankingTextField</string>
-                    </void>
-                    <void method="addEvent">
-                     <object class="com.jformdesigner.model.FormEvent">
-                      <string>java.awt.event.ActionListener</string>
-                      <string>actionPerformed</string>
-                      <string>junctionFlankingTextFieldActionPerformed</string>
-                      <boolean>true</boolean>
-                     </object>
-                    </void>
-                    <void method="addEvent">
-                     <object class="com.jformdesigner.model.FormEvent">
-                      <string>java.awt.event.FocusListener</string>
-                      <string>focusLost</string>
-                      <string>junctionFlankingTextFieldFocusLost</string>
-                      <boolean>true</boolean>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormComponent">
-                    <string>javax.swing.JLabel</string>
-                    <void method="setProperty">
-                     <string>text</string>
-                     <string>Min junction coverage:</string>
-                    </void>
-                    <void property="name">
-                     <string>label16</string>
-                    </void>
-                   </object>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormComponent">
-                    <string>javax.swing.JTextField</string>
-                    <void method="setProperty">
-                     <string>preferredSize</string>
-                     <object class="java.awt.Dimension">
-                      <int>80</int>
-                      <int>28</int>
-                     </object>
-                    </void>
-                    <void property="name">
-                     <string>junctionCoverageTextField</string>
-                    </void>
-                    <void method="addEvent">
-                     <object class="com.jformdesigner.model.FormEvent">
-                      <string>java.awt.event.ActionListener</string>
-                      <string>actionPerformed</string>
-                      <string>junctionCoverageTextFieldActionPerformed</string>
-                      <boolean>true</boolean>
-                     </object>
-                    </void>
-                    <void method="addEvent">
-                     <object class="com.jformdesigner.model.FormEvent">
-                      <string>java.awt.event.FocusListener</string>
-                      <string>focusLost</string>
-                      <string>junctionCoverageTextFieldFocusLost</string>
-                      <boolean>true</boolean>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                 </object>
-                </void>
-                <void method="add">
-                 <object class="com.jformdesigner.model.FormComponent">
-                  <string>com.jformdesigner.designer.wrapper.VSpacer</string>
-                  <void method="setProperty">
-                   <string>preferredSize</string>
-                   <object class="java.awt.Dimension">
-                    <int>10</int>
-                    <int>5</int>
-                   </object>
-                  </void>
-                  <void property="name">
-                   <string>vSpacer6</string>
-                  </void>
-                 </object>
-                </void>
-                <void method="add">
-                 <object class="com.jformdesigner.model.FormContainer">
-                  <string>javax.swing.JPanel</string>
-                  <object class="com.jformdesigner.model.FormLayoutManager">
-                   <class>java.awt.GridLayout</class>
-                  </object>
-                  <void method="setProperty">
-                   <string>border</string>
-                   <object class="javax.swing.border.TitledBorder">
-                    <string>Insert Size Options</string>
-                   </object>
-                  </void>
-                  <void method="setProperty">
-                   <string>toolTipText</string>
-                   <string>These options control the color coding of paired alignments by inferred insert size.  Base pair values set default values.  If &quot;compute&quot; is selected, values are computed from the actual size distribution of each library.</string>
-                  </void>
-                  <void property="name">
-                   <string>panel2</string>
-                  </void>
-                  <void method="add">
-                   <object class="com.jformdesigner.model.FormContainer">
-                    <string>javax.swing.JPanel</string>
-                    <object class="com.jformdesigner.model.FormLayoutManager">
-                     <class>java.awt.GridLayout</class>
-                    </object>
-                    <void property="name">
-                     <string>panel19</string>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.GridBagLayout</class>
-                       <void method="setProperty">
-                        <string>$columnSpecs</string>
-                        <string>0, 0, 0</string>
-                       </void>
-                       <void method="setProperty">
-                        <string>$rowSpecs</string>
-                        <string>0, 0</string>
-                       </void>
-                       <void method="setProperty">
-                        <string>$hGap</string>
-                        <int>5</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>$vGap</string>
-                        <int>5</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>$alignTop</string>
-                        <boolean>true</boolean>
-                       </void>
-                       <void method="setProperty">
-                        <string>$alignLeft</string>
-                        <boolean>true</boolean>
-                       </void>
-                      </object>
-                      <void property="name">
-                       <string>panel16</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Defaults </string>
-                        </void>
-                        <void property="name">
-                         <string>label9</string>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Minimum (bp):</string>
-                        </void>
-                        <void property="name">
-                         <string>jLabel20</string>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                        <void method="setProperty">
-                         <string>gridx</string>
-                         <int>1</int>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>0</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void method="setProperty">
-                         <string>minimumSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>insertSizeMinThresholdField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>insertSizeThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeMinThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>insertSizeMinThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeMinThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeMinThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                        <void method="setProperty">
-                         <string>gridx</string>
-                         <int>2</int>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Maximum (bp):</string>
-                        </void>
-                        <void property="name">
-                         <string>jLabel17</string>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                        <void method="setProperty">
-                         <string>gridx</string>
-                         <int>1</int>
-                        </void>
-                        <void method="setProperty">
-                         <string>gridy</string>
-                         <int>1</int>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>0</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>insertSizeThresholdField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>insertSizeThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                        <void method="setProperty">
-                         <string>gridx</string>
-                         <int>2</int>
-                        </void>
-                        <void method="setProperty">
-                         <string>gridy</string>
-                         <int>1</int>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                    <void method="add">
-                     <object class="com.jformdesigner.model.FormContainer">
-                      <string>javax.swing.JPanel</string>
-                      <object class="com.jformdesigner.model.FormLayoutManager">
-                       <class>java.awt.GridBagLayout</class>
-                       <void method="setProperty">
-                        <string>$columnSpecs</string>
-                        <string>0, 0, 0</string>
-                       </void>
-                       <void method="setProperty">
-                        <string>$rowSpecs</string>
-                        <string>0, 0</string>
-                       </void>
-                       <void method="setProperty">
-                        <string>$hGap</string>
-                        <int>5</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>$vGap</string>
-                        <int>5</int>
-                       </void>
-                       <void method="setProperty">
-                        <string>$alignTop</string>
-                        <boolean>true</boolean>
-                       </void>
-                       <void method="setProperty">
-                        <string>$alignLeft</string>
-                        <boolean>true</boolean>
-                       </void>
-                      </object>
-                      <void property="name">
-                       <string>panel15</string>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JCheckBox</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Compute</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>toolTipText</string>
-                         <string>Min and max values are computed from the actual size distribution of each library.</string>
-                        </void>
-                        <void property="name">
-                         <string>isizeComputeCB</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>isizeComputeCBActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>isizeComputeCBActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>isizeComputeCBActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Minimum (percentile):</string>
-                        </void>
-                        <void property="name">
-                         <string>jLabel30</string>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                        <void method="setProperty">
-                         <string>gridx</string>
-                         <int>1</int>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>0</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void method="setProperty">
-                         <string>minimumSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>insertSizeMinPercentileField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>insertSizeThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeMinThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>insertSizeMinThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeMinThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeMinThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeMinPercentileFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>insertSizeMinPercentileFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                        <void method="setProperty">
-                         <string>gridx</string>
-                         <int>2</int>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JLabel</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>Maximum (percentile):</string>
-                        </void>
-                        <void property="name">
-                         <string>jLabel18</string>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                        <void method="setProperty">
-                         <string>gridx</string>
-                         <int>1</int>
-                        </void>
-                        <void method="setProperty">
-                         <string>gridy</string>
-                         <int>1</int>
-                        </void>
-                       </object>
-                      </void>
-                      <void method="add">
-                       <object class="com.jformdesigner.model.FormComponent">
-                        <string>javax.swing.JTextField</string>
-                        <void method="setProperty">
-                         <string>text</string>
-                         <string>0</string>
-                        </void>
-                        <void method="setProperty">
-                         <string>preferredSize</string>
-                         <object class="java.awt.Dimension">
-                          <int>60</int>
-                          <int>28</int>
-                         </object>
-                        </void>
-                        <void property="name">
-                         <string>insertSizeMaxPercentileField</string>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>insertSizeThresholdFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeThresholdFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.ActionListener</string>
-                          <string>actionPerformed</string>
-                          <string>insertSizeMaxPercentileFieldActionPerformed</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                        <void method="addEvent">
-                         <object class="com.jformdesigner.model.FormEvent">
-                          <string>java.awt.event.FocusListener</string>
-                          <string>focusLost</string>
-                          <string>insertSizeMaxPercentileFieldFocusLost</string>
-                          <boolean>true</boolean>
-                         </object>
-                        </void>
-                       </object>
-                       <object class="com.jformdesigner.model.FormLayoutConstraints">
-                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
-                        <void method="setProperty">
-                         <string>gridx</string>
-                         <int>2</int>
-                        </void>
-                        <void method="setProperty">
-                         <string>gridy</string>
-                         <int>1</int>
-                        </void>
-                       </object>
-                      </void>
-                     </object>
-                    </void>
-                   </object>
-                  </void>
-                 </object>
-                </void>
-               </object>
-              </void>
-             </object>
-             <object class="com.jformdesigner.model.FormLayoutConstraints">
-              <null/>
-              <void method="setProperty">
-               <string>title</string>
-               <string>Alignments</string>
-              </void>
-             </object>
-            </void>
-            <void method="add">
-             <object class="com.jformdesigner.model.FormContainer">
-              <string>javax.swing.JScrollPane</string>
-              <object class="com.jformdesigner.model.FormLayoutManager">
-               <class>javax.swing.JScrollPane</class>
-              </object>
-              <void property="name">
                <string>panel26</string>
               </void>
               <void method="add">
@@ -7143,6 +5210,1939 @@
               <void method="setProperty">
                <string>title</string>
                <string>Advanced</string>
+              </void>
+             </object>
+            </void>
+            <void method="add">
+             <object class="com.jformdesigner.model.FormContainer">
+              <string>javax.swing.JScrollPane</string>
+              <object class="com.jformdesigner.model.FormLayoutManager">
+               <class>javax.swing.JScrollPane</class>
+              </object>
+              <void property="name">
+               <string>panel20</string>
+              </void>
+              <void method="add">
+               <object class="com.jformdesigner.model.FormContainer">
+                <string>javax.swing.JPanel</string>
+                <object class="com.jformdesigner.model.FormLayoutManager">
+                 <class>javax.swing.BoxLayout</class>
+                 <void method="setProperty">
+                  <string>axis</string>
+                  <int>1</int>
+                 </void>
+                </object>
+                <void property="name">
+                 <string>alignmentPanel</string>
+                </void>
+                <void method="add">
+                 <object class="com.jformdesigner.model.FormContainer">
+                  <string>javax.swing.JPanel</string>
+                  <object class="com.jformdesigner.model.FormLayoutManager">
+                   <class>java.awt.FlowLayout</class>
+                   <void method="setProperty">
+                    <string>alignment</string>
+                    <int>0</int>
+                   </void>
+                  </object>
+                  <void method="setProperty">
+                   <string>border</string>
+                   <object class="javax.swing.border.TitledBorder">
+                    <string>Track Display Options</string>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>jPanel11</string>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormContainer">
+                    <string>javax.swing.JPanel</string>
+                    <object class="com.jformdesigner.model.FormLayoutManager">
+                     <class>java.awt.FlowLayout</class>
+                     <void method="setProperty">
+                      <string>alignment</string>
+                      <int>0</int>
+                     </void>
+                    </object>
+                    <void property="name">
+                     <string>panel32</string>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JLabel</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>On initial load show:</string>
+                      </void>
+                      <void property="name">
+                       <string>label39</string>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Alignment Track</string>
+                      </void>
+                      <void method="setProperty">
+                       <string>horizontalAlignment</string>
+                       <int>2</int>
+                      </void>
+                      <void property="name">
+                       <string>showAlignmentTrackCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>showAlignmentTrackCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Coverage Track</string>
+                      </void>
+                      <void property="name">
+                       <string>showCovTrackCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>showCovTrackCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Splice Junction Track</string>
+                      </void>
+                      <void property="name">
+                       <string>showJunctionTrackCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>showJunctionTrackCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+                <void method="add">
+                 <object class="com.jformdesigner.model.FormContainer">
+                  <string>javax.swing.JPanel</string>
+                  <object class="com.jformdesigner.model.FormLayoutManager">
+                   <class>javax.swing.BoxLayout</class>
+                   <void method="setProperty">
+                    <string>axis</string>
+                    <int>1</int>
+                   </void>
+                  </object>
+                  <void method="setProperty">
+                   <string>border</string>
+                   <object class="javax.swing.border.TitledBorder">
+                    <string>Alignment Track Options</string>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>jPanel12</string>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormContainer">
+                    <string>javax.swing.JPanel</string>
+                    <object class="com.jformdesigner.model.FormLayoutManager">
+                     <class>java.awt.GridLayout</class>
+                     <void method="setProperty">
+                      <string>rows</string>
+                      <int>7</int>
+                     </void>
+                    </object>
+                    <void property="name">
+                     <string>panel13</string>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.FlowLayout</class>
+                       <void method="setProperty">
+                        <string>alignment</string>
+                        <int>0</int>
+                       </void>
+                      </object>
+                      <void property="name">
+                       <string>panel31</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Visibility range threshold (kb):</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>250</int>
+                          <int>16</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>jLabel11</string>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>jTextField1</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>80</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>samMaxWindowSizeField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>samMaxWindowSizeFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samMaxWindowSizeFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>&lt;html&gt;&lt;i&gt;Range at which alignments become visible</string>
+                        </void>
+                        <void property="name">
+                         <string>jLabel12</string>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.FlowLayout</class>
+                       <void method="setProperty">
+                        <string>alignment</string>
+                        <int>0</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>hgap</string>
+                        <int>0</int>
+                       </void>
+                      </object>
+                      <void method="setProperty">
+                       <string>border</string>
+                       <object class="com.jformdesigner.model.FormObject" field="NULL_VALUE"/>
+                      </void>
+                      <void property="name">
+                       <string>panel4</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JCheckBox</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Downsample reads</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>horizontalAlignment</string>
+                         <int>2</int>
+                        </void>
+                        <void property="name">
+                         <string>downsampleReadsCB</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>downsampleReadsCBActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>com.jformdesigner.designer.wrapper.HSpacer</string>
+                        <void property="name">
+                         <string>hSpacer3</string>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Max read count:</string>
+                        </void>
+                        <void property="name">
+                         <string>label23</string>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>100</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>samDownsampleCountField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samDownsampleCountFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>samDownsampleCountFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>per window size (bases):</string>
+                        </void>
+                        <void property="name">
+                         <string>jLabel13</string>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>jTextField1</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>100</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>samSamplingWindowField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samSamplingWindowFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>samSamplingWindowFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.FlowLayout</class>
+                       <void method="setProperty">
+                        <string>alignment</string>
+                        <int>0</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>hgap</string>
+                        <int>0</int>
+                       </void>
+                      </object>
+                      <void method="setProperty">
+                       <string>border</string>
+                       <object class="com.jformdesigner.model.FormObject" field="NULL_VALUE"/>
+                      </void>
+                      <void property="name">
+                       <string>panel11</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JCheckBox</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Shade mismatched bases by quality:</string>
+                        </void>
+                        <void property="name">
+                         <string>samShadeMismatchedBaseCB</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samShadeMismatchedBaseCBActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>0</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>samMinBaseQualityField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samMinBaseQualityFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>samMinBaseQualityFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>to</string>
+                        </void>
+                        <void property="name">
+                         <string>label2</string>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>0</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>samMaxBaseQualityField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samMaxBaseQualityFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>samMaxBaseQualityFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.FlowLayout</class>
+                       <void method="setProperty">
+                        <string>alignment</string>
+                        <int>0</int>
+                       </void>
+                      </object>
+                      <void property="name">
+                       <string>panel12</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Mapping quality threshold:</string>
+                        </void>
+                        <void property="name">
+                         <string>jLabel15</string>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>0</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>mappingQualityThresholdField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>mappingQualityThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>mappingQualityThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.FlowLayout</class>
+                       <void method="setProperty">
+                        <string>alignment</string>
+                        <int>0</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>hgap</string>
+                        <int>0</int>
+                       </void>
+                      </object>
+                      <void method="setProperty">
+                       <string>border</string>
+                       <object class="com.jformdesigner.model.FormObject" field="NULL_VALUE"/>
+                      </void>
+                      <void property="name">
+                       <string>panel10</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JCheckBox</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Label indels &gt; </string>
+                        </void>
+                        <void property="name">
+                         <string>samFlagIndelsCB</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samFlagIndelsCBActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>26</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>samFlagIndelsThresholdField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samFlagIndelsThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>samFlagIndelsThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samFlagIndelsThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string> bases</string>
+                        </void>
+                        <void property="name">
+                         <string>label31</string>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.FlowLayout</class>
+                       <void method="setProperty">
+                        <string>alignment</string>
+                        <int>0</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>hgap</string>
+                        <int>0</int>
+                       </void>
+                      </object>
+                      <void method="setProperty">
+                       <string>border</string>
+                       <object class="com.jformdesigner.model.FormObject" field="NULL_VALUE"/>
+                      </void>
+                      <void property="name">
+                       <string>panel10clip</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JCheckBox</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Flag clipping &gt; </string>
+                        </void>
+                        <void property="name">
+                         <string>samFlagClippingCB</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samFlagClippingCBActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>26</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>samFlagClippingThresholdField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samFlagClippingThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>samFlagClippingThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>samFlagClippingThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string> bases</string>
+                        </void>
+                        <void property="name">
+                         <string>label31clip</string>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.FlowLayout</class>
+                       <void method="setProperty">
+                        <string>alignment</string>
+                        <int>0</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>hgap</string>
+                        <int>0</int>
+                       </void>
+                      </object>
+                      <void property="name">
+                       <string>panel9</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JCheckBox</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Hide indels &lt; </string>
+                        </void>
+                        <void property="name">
+                         <string>hideIndelsBasesCB</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>hideIndelsBasesCBActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>26</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>hideIndelsBasesField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>hideIndelsBasesFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>hideIndelsBasesFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string> bases</string>
+                        </void>
+                        <void property="name">
+                         <string>label45</string>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormContainer">
+                    <string>javax.swing.JPanel</string>
+                    <object class="com.jformdesigner.model.FormLayoutManager">
+                     <class>java.awt.GridLayout</class>
+                     <void method="setProperty">
+                      <string>columns</string>
+                      <int>1</int>
+                     </void>
+                     <void method="setProperty">
+                      <string>rows</string>
+                      <int>4</int>
+                     </void>
+                    </object>
+                    <void property="name">
+                     <string>panel8</string>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Filter duplicate reads</string>
+                      </void>
+                      <void property="name">
+                       <string>samFilterDuplicatesCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>samShowDuplicatesCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Flag unmapped pairs</string>
+                      </void>
+                      <void property="name">
+                       <string>samFlagUnmappedPairCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>samFlagUnmappedPairCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Filter vendor failed reads</string>
+                      </void>
+                      <void property="name">
+                       <string>filterFailedReadsCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>filterVendorFailedReadsCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Show soft-clipped bases</string>
+                      </void>
+                      <void property="name">
+                       <string>showSoftClippedCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>showSoftClippedCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Filter secondary alignments</string>
+                      </void>
+                      <void property="name">
+                       <string>filterSecondaryAlignmentsCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>filterSecondaryAlignmentsCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Quick consensus mode</string>
+                      </void>
+                      <void property="name">
+                       <string>quickConsensusModeCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>quickConsensusModeCBActionPerformed</string>
+                        <boolean>false</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Show center line</string>
+                      </void>
+                      <void property="name">
+                       <string>showCenterLineCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>showCenterLineCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JCheckBox</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Filter supplementary alignments</string>
+                      </void>
+                      <void property="name">
+                       <string>filterSupplementaryAlignmentsCB</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>filterSupplementaryAlignmentsCBActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormContainer">
+                    <string>javax.swing.JPanel</string>
+                    <object class="com.jformdesigner.model.FormLayoutManager">
+                     <class>java.awt.FlowLayout</class>
+                     <void method="setProperty">
+                      <string>alignment</string>
+                      <int>0</int>
+                     </void>
+                    </object>
+                    <void property="name">
+                     <string>panel31b</string>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JLabel</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Hidden SAM tags:</string>
+                      </void>
+                      <void method="setProperty">
+                       <string>preferredSize</string>
+                       <object class="java.awt.Dimension">
+                        <int>120</int>
+                        <int>16</int>
+                       </object>
+                      </void>
+                      <void property="name">
+                       <string>jLabel11b</string>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JTextField</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>jTextField1b</string>
+                      </void>
+                      <void method="setProperty">
+                       <string>preferredSize</string>
+                       <object class="java.awt.Dimension">
+                        <int>250</int>
+                        <int>28</int>
+                       </object>
+                      </void>
+                      <void property="name">
+                       <string>samHiddenTagsField</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.FocusListener</string>
+                        <string>focusLost</string>
+                        <string>samHiddenTagsFieldFocusLost</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>samHiddenTagsFieldActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+                <void method="add">
+                 <object class="com.jformdesigner.model.FormComponent">
+                  <string>com.jformdesigner.designer.wrapper.VSpacer</string>
+                  <void method="setProperty">
+                   <string>preferredSize</string>
+                   <object class="java.awt.Dimension">
+                    <int>10</int>
+                    <int>5</int>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>vSpacer5</string>
+                  </void>
+                 </object>
+                </void>
+                <void method="add">
+                 <object class="com.jformdesigner.model.FormContainer">
+                  <string>javax.swing.JPanel</string>
+                  <object class="com.jformdesigner.model.FormLayoutManager">
+                   <class>java.awt.FlowLayout</class>
+                   <void method="setProperty">
+                    <string>alignment</string>
+                    <int>0</int>
+                   </void>
+                  </object>
+                  <void method="setProperty">
+                   <string>border</string>
+                   <object class="javax.swing.border.TitledBorder">
+                    <string>Coverage Track Options</string>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>panel34</string>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormContainer">
+                    <string>javax.swing.JPanel</string>
+                    <object class="com.jformdesigner.model.FormLayoutManager">
+                     <class>java.awt.FlowLayout</class>
+                     <void method="setProperty">
+                      <string>alignment</string>
+                      <int>0</int>
+                     </void>
+                    </object>
+                    <void property="name">
+                     <string>panel5</string>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JLabel</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>Coverage allele-fraction threshold:</string>
+                      </void>
+                      <void property="name">
+                       <string>jLabel26</string>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>javax.swing.JTextField</string>
+                      <void method="setProperty">
+                       <string>text</string>
+                       <string>0</string>
+                      </void>
+                      <void method="setProperty">
+                       <string>preferredSize</string>
+                       <object class="java.awt.Dimension">
+                        <int>60</int>
+                        <int>28</int>
+                       </object>
+                      </void>
+                      <void property="name">
+                       <string>snpThresholdField</string>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.ActionListener</string>
+                        <string>actionPerformed</string>
+                        <string>snpThresholdFieldActionPerformed</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                      <void method="addEvent">
+                       <object class="com.jformdesigner.model.FormEvent">
+                        <string>java.awt.event.FocusListener</string>
+                        <string>focusLost</string>
+                        <string>snpThresholdFieldFocusLost</string>
+                        <boolean>true</boolean>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormComponent">
+                      <string>com.jformdesigner.designer.wrapper.HSpacer</string>
+                      <void method="setProperty">
+                       <string>preferredSize</string>
+                       <object class="java.awt.Dimension">
+                        <int>50</int>
+                        <int>10</int>
+                       </object>
+                      </void>
+                      <void property="name">
+                       <string>hSpacer2</string>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormComponent">
+                    <string>javax.swing.JCheckBox</string>
+                    <void method="setProperty">
+                     <string>text</string>
+                     <string>Quality weight allele fraction</string>
+                    </void>
+                    <void property="name">
+                     <string>useAlleleQualityCB</string>
+                    </void>
+                    <void method="addEvent">
+                     <object class="com.jformdesigner.model.FormEvent">
+                      <string>java.awt.event.ActionListener</string>
+                      <string>actionPerformed</string>
+                      <string>useAlleleQualityCBActionPerformed</string>
+                      <boolean>true</boolean>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+                <void method="add">
+                 <object class="com.jformdesigner.model.FormContainer">
+                  <string>javax.swing.JPanel</string>
+                  <object class="com.jformdesigner.model.FormLayoutManager">
+                   <class>java.awt.FlowLayout</class>
+                   <void method="setProperty">
+                    <string>alignment</string>
+                    <int>0</int>
+                   </void>
+                  </object>
+                  <void method="setProperty">
+                   <string>border</string>
+                   <object class="javax.swing.border.TitledBorder">
+                    <string>Splice Junction Track Options</string>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>panel3</string>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormComponent">
+                    <string>javax.swing.JCheckBox</string>
+                    <void method="setProperty">
+                     <string>text</string>
+                     <string>Show flanking regions</string>
+                    </void>
+                    <void property="name">
+                     <string>showJunctionFlankingRegionsCB</string>
+                    </void>
+                    <void method="addEvent">
+                     <object class="com.jformdesigner.model.FormEvent">
+                      <string>java.awt.event.ActionListener</string>
+                      <string>actionPerformed</string>
+                      <string>showJunctionFlankingRegionsCBActionPerformed</string>
+                      <boolean>true</boolean>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormComponent">
+                    <string>javax.swing.JLabel</string>
+                    <void method="setProperty">
+                     <string>text</string>
+                     <string>Min flanking width:</string>
+                    </void>
+                    <void property="name">
+                     <string>label15</string>
+                    </void>
+                   </object>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormComponent">
+                    <string>javax.swing.JTextField</string>
+                    <void method="setProperty">
+                     <string>preferredSize</string>
+                     <object class="java.awt.Dimension">
+                      <int>80</int>
+                      <int>28</int>
+                     </object>
+                    </void>
+                    <void property="name">
+                     <string>junctionFlankingTextField</string>
+                    </void>
+                    <void method="addEvent">
+                     <object class="com.jformdesigner.model.FormEvent">
+                      <string>java.awt.event.ActionListener</string>
+                      <string>actionPerformed</string>
+                      <string>junctionFlankingTextFieldActionPerformed</string>
+                      <boolean>true</boolean>
+                     </object>
+                    </void>
+                    <void method="addEvent">
+                     <object class="com.jformdesigner.model.FormEvent">
+                      <string>java.awt.event.FocusListener</string>
+                      <string>focusLost</string>
+                      <string>junctionFlankingTextFieldFocusLost</string>
+                      <boolean>true</boolean>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormComponent">
+                    <string>javax.swing.JLabel</string>
+                    <void method="setProperty">
+                     <string>text</string>
+                     <string>Min junction coverage:</string>
+                    </void>
+                    <void property="name">
+                     <string>label16</string>
+                    </void>
+                   </object>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormComponent">
+                    <string>javax.swing.JTextField</string>
+                    <void method="setProperty">
+                     <string>preferredSize</string>
+                     <object class="java.awt.Dimension">
+                      <int>80</int>
+                      <int>28</int>
+                     </object>
+                    </void>
+                    <void property="name">
+                     <string>junctionCoverageTextField</string>
+                    </void>
+                    <void method="addEvent">
+                     <object class="com.jformdesigner.model.FormEvent">
+                      <string>java.awt.event.ActionListener</string>
+                      <string>actionPerformed</string>
+                      <string>junctionCoverageTextFieldActionPerformed</string>
+                      <boolean>true</boolean>
+                     </object>
+                    </void>
+                    <void method="addEvent">
+                     <object class="com.jformdesigner.model.FormEvent">
+                      <string>java.awt.event.FocusListener</string>
+                      <string>focusLost</string>
+                      <string>junctionCoverageTextFieldFocusLost</string>
+                      <boolean>true</boolean>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+                <void method="add">
+                 <object class="com.jformdesigner.model.FormComponent">
+                  <string>com.jformdesigner.designer.wrapper.VSpacer</string>
+                  <void method="setProperty">
+                   <string>preferredSize</string>
+                   <object class="java.awt.Dimension">
+                    <int>10</int>
+                    <int>5</int>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>vSpacer6</string>
+                  </void>
+                 </object>
+                </void>
+                <void method="add">
+                 <object class="com.jformdesigner.model.FormContainer">
+                  <string>javax.swing.JPanel</string>
+                  <object class="com.jformdesigner.model.FormLayoutManager">
+                   <class>java.awt.GridLayout</class>
+                  </object>
+                  <void method="setProperty">
+                   <string>border</string>
+                   <object class="javax.swing.border.TitledBorder">
+                    <string>Insert Size Options</string>
+                   </object>
+                  </void>
+                  <void method="setProperty">
+                   <string>toolTipText</string>
+                   <string>These options control the color coding of paired alignments by inferred insert size.  Base pair values set default values.  If &quot;compute&quot; is selected, values are computed from the actual size distribution of each library.</string>
+                  </void>
+                  <void property="name">
+                   <string>panel2</string>
+                  </void>
+                  <void method="add">
+                   <object class="com.jformdesigner.model.FormContainer">
+                    <string>javax.swing.JPanel</string>
+                    <object class="com.jformdesigner.model.FormLayoutManager">
+                     <class>java.awt.GridLayout</class>
+                    </object>
+                    <void property="name">
+                     <string>panel19</string>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.GridBagLayout</class>
+                       <void method="setProperty">
+                        <string>$columnSpecs</string>
+                        <string>0, 0, 0</string>
+                       </void>
+                       <void method="setProperty">
+                        <string>$rowSpecs</string>
+                        <string>0, 0</string>
+                       </void>
+                       <void method="setProperty">
+                        <string>$hGap</string>
+                        <int>5</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>$vGap</string>
+                        <int>5</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>$alignTop</string>
+                        <boolean>true</boolean>
+                       </void>
+                       <void method="setProperty">
+                        <string>$alignLeft</string>
+                        <boolean>true</boolean>
+                       </void>
+                      </object>
+                      <void property="name">
+                       <string>panel16</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Defaults </string>
+                        </void>
+                        <void property="name">
+                         <string>label9</string>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Minimum (bp):</string>
+                        </void>
+                        <void property="name">
+                         <string>jLabel20</string>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                        <void method="setProperty">
+                         <string>gridx</string>
+                         <int>1</int>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>0</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void method="setProperty">
+                         <string>minimumSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>insertSizeMinThresholdField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>insertSizeThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeMinThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>insertSizeMinThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeMinThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeMinThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                        <void method="setProperty">
+                         <string>gridx</string>
+                         <int>2</int>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Maximum (bp):</string>
+                        </void>
+                        <void property="name">
+                         <string>jLabel17</string>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                        <void method="setProperty">
+                         <string>gridx</string>
+                         <int>1</int>
+                        </void>
+                        <void method="setProperty">
+                         <string>gridy</string>
+                         <int>1</int>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>0</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>insertSizeThresholdField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>insertSizeThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                        <void method="setProperty">
+                         <string>gridx</string>
+                         <int>2</int>
+                        </void>
+                        <void method="setProperty">
+                         <string>gridy</string>
+                         <int>1</int>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void method="add">
+                     <object class="com.jformdesigner.model.FormContainer">
+                      <string>javax.swing.JPanel</string>
+                      <object class="com.jformdesigner.model.FormLayoutManager">
+                       <class>java.awt.GridBagLayout</class>
+                       <void method="setProperty">
+                        <string>$columnSpecs</string>
+                        <string>0, 0, 0</string>
+                       </void>
+                       <void method="setProperty">
+                        <string>$rowSpecs</string>
+                        <string>0, 0</string>
+                       </void>
+                       <void method="setProperty">
+                        <string>$hGap</string>
+                        <int>5</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>$vGap</string>
+                        <int>5</int>
+                       </void>
+                       <void method="setProperty">
+                        <string>$alignTop</string>
+                        <boolean>true</boolean>
+                       </void>
+                       <void method="setProperty">
+                        <string>$alignLeft</string>
+                        <boolean>true</boolean>
+                       </void>
+                      </object>
+                      <void property="name">
+                       <string>panel15</string>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JCheckBox</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Compute</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>toolTipText</string>
+                         <string>Min and max values are computed from the actual size distribution of each library.</string>
+                        </void>
+                        <void property="name">
+                         <string>isizeComputeCB</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>isizeComputeCBActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>isizeComputeCBActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>isizeComputeCBActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Minimum (percentile):</string>
+                        </void>
+                        <void property="name">
+                         <string>jLabel30</string>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                        <void method="setProperty">
+                         <string>gridx</string>
+                         <int>1</int>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>0</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void method="setProperty">
+                         <string>minimumSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>insertSizeMinPercentileField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>insertSizeThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeMinThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>insertSizeMinThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeMinThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeMinThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeMinPercentileFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>insertSizeMinPercentileFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                        <void method="setProperty">
+                         <string>gridx</string>
+                         <int>2</int>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JLabel</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>Maximum (percentile):</string>
+                        </void>
+                        <void property="name">
+                         <string>jLabel18</string>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                        <void method="setProperty">
+                         <string>gridx</string>
+                         <int>1</int>
+                        </void>
+                        <void method="setProperty">
+                         <string>gridy</string>
+                         <int>1</int>
+                        </void>
+                       </object>
+                      </void>
+                      <void method="add">
+                       <object class="com.jformdesigner.model.FormComponent">
+                        <string>javax.swing.JTextField</string>
+                        <void method="setProperty">
+                         <string>text</string>
+                         <string>0</string>
+                        </void>
+                        <void method="setProperty">
+                         <string>preferredSize</string>
+                         <object class="java.awt.Dimension">
+                          <int>60</int>
+                          <int>28</int>
+                         </object>
+                        </void>
+                        <void property="name">
+                         <string>insertSizeMaxPercentileField</string>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>insertSizeThresholdFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeThresholdFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.ActionListener</string>
+                          <string>actionPerformed</string>
+                          <string>insertSizeMaxPercentileFieldActionPerformed</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                        <void method="addEvent">
+                         <object class="com.jformdesigner.model.FormEvent">
+                          <string>java.awt.event.FocusListener</string>
+                          <string>focusLost</string>
+                          <string>insertSizeMaxPercentileFieldFocusLost</string>
+                          <boolean>true</boolean>
+                         </object>
+                        </void>
+                       </object>
+                       <object class="com.jformdesigner.model.FormLayoutConstraints">
+                        <class>com.jformdesigner.runtime.GridBagConstraintsEx</class>
+                        <void method="setProperty">
+                         <string>gridx</string>
+                         <int>2</int>
+                        </void>
+                        <void method="setProperty">
+                         <string>gridy</string>
+                         <int>1</int>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+             </object>
+             <object class="com.jformdesigner.model.FormLayoutConstraints">
+              <null/>
+              <void method="setProperty">
+               <string>title</string>
+               <string>Alignments</string>
               </void>
              </object>
             </void>
