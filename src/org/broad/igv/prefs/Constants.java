@@ -14,7 +14,7 @@ final public class Constants {
     public static final String NULL_CATEGORY = "NULL";
     public static final String THIRD_GEN = "THIRD_GEN";
     public static final String RNA = "RNA";
-    
+
     // UI behavior
     public static final String TOOLTIP_INITIAL_DELAY = "TOOLTIP.INITIAL_DELAY";
     public static final String TOOLTIP_RESHOW_DELAY = "TOOLTIP.RESHOW_DELAY";
@@ -32,6 +32,8 @@ final public class Constants {
     public static final String SKIP_VERSION = "SKIP_VERSION";
     public static final String SHOW_DEFAULT_TRACK_ATTRIBUTES = "SHOW_DEFAULT_TRACK_ATTRIBUTES";
     public static final String SHOW_GENOME_SERVER_WARNING = "SHOW_GENOME_SERVER_WARNING";
+    public static final String CN_FREQ_AMP_THRESHOLD = "CN_FREQ.AMP_THRESHOLD";
+    public static final String CN_FREQ_DEL_THRESHOLD = "CN_FREQ.DEL_THRESHOLD";
 
     //
     public static final String RECENT_SESSIONS = "IGV.Session.recent.sessions";
@@ -234,12 +236,12 @@ final public class Constants {
     public static final String GENOME_SPACE_DM_SERVER = "GENOME_SPACE_DM_SERVER";
     public static final String GENOME_SPACE_ATM_SERVER = "GENOME_SPACE_ATM_SERVER";
     public static final String GENOME_SPACE_IDENTITY_SERVER = "GENOME_SPACE_IDENTITY_SERVER";
-    
+
     // Google
     public static final String GOOGLE_API_KEY = "GOOGLE_API_KEY";
     public static final String ENABLE_GOOGLE_MENU = "ENABLE_GOOGLE_MENU";
     public static final String SAVE_GOOGLE_CREDENTIALS = "SAVE_GOOGLE_CREDENTIALS";
-    
+
     // CBIO connections
     public static final String CBIO_MUTATION_THRESHOLD = "CBIO_MUTATION_THRESHOLD";
     public static final String CBIO_AMPLIFICATION_THRESHOLD = "CBIO_AMPLIFICATION_THRESHOLD";
@@ -256,17 +258,17 @@ final public class Constants {
     public static final String PROXY_PW = "PROXY.PW";
     public static final String PROXY_TYPE = "PROXY.TYPE";
     public static final String PROXY_WHITELIST = "PROXY.WHITELIST";
-    
+
     // Port settings
     public static final String PORT_ENABLED = "PORT_ENABLED";
     public static final String PORT_NUMBER = "PORT_NUMBER";
-    
+
     // Database support -- never deployed
     public static final String DB_ENABLED = "DB_ENABLED";
     public static final String DB_HOST = "DB_HOST";
     public static final String DB_NAME = "DB_NAME";
     public static final String DB_PORT = "DB_PORT";
-    
+
     // Letter of support dialog
     public static final String SHOW_LOS = "showLOS";
 

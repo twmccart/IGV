@@ -259,6 +259,8 @@ public class PreferencesManager implements IGVEventObserver {
         genericDefaults.put(CHART_COLOR_TRACK_NAME, "true");
         genericDefaults.put(CHART_TRACK_HEIGHT_KEY, "40");
         genericDefaults.put(CHART_SHOW_ALL_HEATMAP, "false");
+        genericDefaults.put( CN_FREQ_AMP_THRESHOLD, "0.1");
+        genericDefaults.put(CN_FREQ_DEL_THRESHOLD , "-0.1");
 
         genericDefaults.put(SAM_SHOW_DUPLICATES, "false");
         genericDefaults.put(SAM_QUICK_CONSENSUS_MODE, "false");
