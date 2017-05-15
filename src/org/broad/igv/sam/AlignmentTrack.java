@@ -35,6 +35,7 @@ import org.broad.igv.feature.Strand;
 import org.broad.igv.feature.genome.ChromosomeNameComparator;
 import org.broad.igv.feature.genome.Genome;
 import org.broad.igv.lists.GeneList;
+import org.broad.igv.prefs.Constants;
 import org.broad.igv.prefs.IGVPreferences;
 import org.broad.igv.prefs.PreferencesManager;
 import org.broad.igv.renderer.GraphicUtils;
@@ -1654,7 +1655,11 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
             addSeparator();
             addCopySequenceItem(e);
-            addExtViewItem(e);
+
+            if(PreferencesManager.getPreferences().get(Constants.EXTVIEW_URL) != null) {
+                addExtViewItem(e);
+            }
+
             addBlatItem(e);
             addConsensusSequence(e);
 
