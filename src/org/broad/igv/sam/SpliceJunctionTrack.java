@@ -28,6 +28,7 @@ package org.broad.igv.sam;
 
 import htsjdk.tribble.Feature;
 import org.apache.log4j.Logger;
+import org.broad.igv.Globals;
 import org.broad.igv.feature.SpliceJunctionFeature;
 import org.broad.igv.prefs.Constants;
 import org.broad.igv.prefs.PreferencesManager;
@@ -238,7 +239,7 @@ public class SpliceJunctionTrack extends FeatureTrack {
 
     @Override
     public boolean isReadyToPaint(ReferenceFrame frame) {
-        if (frame.getScale() > dataManager.getMinVisibleScale()) {
+        if (frame.getChrName().equals(Globals.CHR_ALL) ||  frame.getScale() > dataManager.getMinVisibleScale()) {
             return true;   // Nothing to paint
         } else {
 
