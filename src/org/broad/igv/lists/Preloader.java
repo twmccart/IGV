@@ -99,10 +99,7 @@ public class Preloader {
         for (Track track : trackList) {
             if (track.isReadyToPaint(frame) == false) {
                 final Runnable runnable = () -> {
-               //     log.info("Loading " + track.getName() + " " + frame.getFormattedLocusString());
                     track.load(frame);
-
-               //     log.info("Loaded " + track.getName() + " " + frame.getFormattedLocusString());
                 };
 
                 if(Globals.isBatch()) {
@@ -114,15 +111,11 @@ public class Preloader {
         }
 
         if (futures.size() > 0) {
-            CompletableFuture[] futureArray = futures.toArray(new CompletableFuture[futures.size()]);
+            final CompletableFuture[] futureArray = futures.toArray(new CompletableFuture[futures.size()]);
             WaitCursorManager.CursorToken token = WaitCursorManager.showWaitCursor();
             CompletableFuture.allOf(futureArray).thenRun(() -> {
-                List<Track> unloadedTracks = dataPanel.notloadedTracks();
-                if (unloadedTracks.size() > 0) {
-                    log.info("Unloaded tracks for " + frame.getFormattedLocusString() + "  " + unloadedTracks);
-                }
 
-                log.info("Call repaint " + dataPanel.hashCode() + " " + dataPanel.allTracksLoaded());
+                //log.info("Call repaint " + dataPanel.hashCode() + " " + dataPanel.allTracksLoaded());
                 dataPanel.loadInProgress = false;
                 WaitCursorManager.removeWaitCursor(token);
                 dataPanel.repaint();
