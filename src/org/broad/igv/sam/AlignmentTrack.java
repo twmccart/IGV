@@ -286,7 +286,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
         if (this.coverageTrack != null) {
             this.coverageTrack.setRenderOptions(this.renderOptions);
         }
-        if(this.spliceJunctionTrack != null) {
+        if (this.spliceJunctionTrack != null) {
             this.spliceJunctionTrack.setRenderOptions(this.renderOptions);
         }
     }
@@ -373,14 +373,14 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
     @Override
     public boolean isReadyToPaint(ReferenceFrame frame) {
-        if (frame.getScale() > dataManager.getMinVisibleScale()) {
+
+        if (frame.getChrName().equals(Globals.CHR_ALL) || frame.getScale() > dataManager.getMinVisibleScale()) {
             return true;   // Nothing to paint
         } else {
-
+            List<InsertionInterval> insertionIntervals = getInsertionIntervals(frame);
+            insertionIntervals.clear();
+            return dataManager.isLoaded(frame);
         }
-        List<InsertionInterval> insertionIntervals = getInsertionIntervals(frame);
-        insertionIntervals.clear();
-        return dataManager.isLoaded(frame);
     }
 
 
@@ -418,7 +418,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
         downsampleRect.height = DOWNAMPLED_ROW_HEIGHT;
         renderDownsampledIntervals(context, downsampleRect);
 
-        if(renderOptions.drawInsertionIntervals) {
+        if (renderOptions.drawInsertionIntervals) {
             insertionRect = new Rectangle(rect);
             insertionRect.y += DOWNAMPLED_ROW_HEIGHT + DS_MARGIN_0;
             insertionRect.height = INSERTION_ROW_HEIGHT;
@@ -1257,7 +1257,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
     public void dispose() {
         super.dispose();
         clearCaches();
-        if(dataManager != null) dataManager.dumpAlignments();
+        if (dataManager != null) dataManager.dumpAlignments();
         dataManager = null;
         removed = true;
         setVisible(false);
@@ -1656,7 +1656,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             addSeparator();
             addCopySequenceItem(e);
 
-            if(PreferencesManager.getPreferences().get(Constants.EXTVIEW_URL) != null) {
+            if (PreferencesManager.getPreferences().get(Constants.EXTVIEW_URL) != null) {
                 addExtViewItem(e);
             }
 

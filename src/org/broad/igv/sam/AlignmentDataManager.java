@@ -80,6 +80,7 @@ public class AlignmentDataManager implements IGVEventObserver {
 
             Collection<ReferenceFrame> frames = ((FrameManager.ChangeEvent) event).getFrames();
             Map<ReferenceFrame, AlignmentInterval> newCache = Collections.synchronizedMap(new HashMap<>());
+
             // Trim cache to include only current frames
             for(ReferenceFrame f : frames) {
                 if(intervalCache.containsKey(f)) {
@@ -169,7 +170,19 @@ public class AlignmentDataManager implements IGVEventObserver {
 
 
     public AlignmentInterval getLoadedInterval(ReferenceFrame frame) {
-        return intervalCache.get(frame);
+
+        AlignmentInterval interval = intervalCache.get(frame);
+        if(interval != null && interval.getRange().contains(frame.getCurrentRange())) {
+            return interval;
+        } else {
+            for(ReferenceFrame f : intervalCache.keySet()) {
+                if(f.getCurrentRange().contains(frame.getCurrentRange())) {
+                    return intervalCache.get(f);
+                }
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -222,15 +235,7 @@ public class AlignmentDataManager implements IGVEventObserver {
 
 
     public boolean isLoaded(ReferenceFrame frame) {
-
-        AlignmentInterval interval = intervalCache.get(frame);
-        if (interval == null) {
-            return false;
-        } else {
-
-            Range range = frame.getCurrentRange();
-            return interval.contains(range.getChr(), range.getStart(), range.getEnd());
-        }
+       return getLoadedInterval(frame) != null;
     }
 
     public boolean isLoading(ReferenceFrame frame) {
