@@ -1528,7 +1528,8 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
         renderOptions.linkedReads = linkedReads;
         if (linkedReads == true) {
-            this.renderRollback = new RenderRollback(renderOptions, getDisplayMode());
+
+            if(renderRollback == null) renderRollback = new RenderRollback(renderOptions, getDisplayMode());
 
             renderOptions.setLinkByTag(tag);
 
@@ -1550,6 +1551,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
         } else {
             if (this.renderRollback != null) {
                 this.renderRollback.restore(renderOptions);
+                this.renderRollback = null;
             }
         }
 
