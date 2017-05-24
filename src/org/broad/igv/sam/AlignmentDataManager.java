@@ -49,7 +49,7 @@ public class AlignmentDataManager implements IGVEventObserver {
 
     private static Logger log = Logger.getLogger(AlignmentDataManager.class);
 
-    private Map<ReferenceFrame, AlignmentInterval> intervalCache;
+    private Collection<AlignmentInterval> intervalCache;
 
     private ResourceLocator locator;
     private HashMap<String, String> chrMappings = new HashMap();
@@ -70,7 +70,7 @@ public class AlignmentDataManager implements IGVEventObserver {
         peStats = new HashMap();
         initLoadOptions();
         initChrMap(genome);
-        intervalCache = Collections.synchronizedMap(new HashMap<>());
+        intervalCache = Collections.synchronizedList(new ArrayList<>());
         IGVEventBus.getInstance().subscribe(FrameManager.ChangeEvent.class, this);
     }
 
@@ -79,12 +79,13 @@ public class AlignmentDataManager implements IGVEventObserver {
         if (event instanceof FrameManager.ChangeEvent) {
 
             Collection<ReferenceFrame> frames = ((FrameManager.ChangeEvent) event).getFrames();
-            Map<ReferenceFrame, AlignmentInterval> newCache = Collections.synchronizedMap(new HashMap<>());
+            Collection<AlignmentInterval> newCache = Collections.synchronizedList(new ArrayList<>());
 
             // Trim cache to include only current frames
             for(ReferenceFrame f : frames) {
-                if(intervalCache.containsKey(f)) {
-                    newCache.put(f, intervalCache.get(f));
+                AlignmentInterval i = getLoadedInterval(f);
+                if(i != null) {
+                    newCache.add(i);
                 }
             }
             intervalCache = newCache;
@@ -171,16 +172,12 @@ public class AlignmentDataManager implements IGVEventObserver {
 
     public AlignmentInterval getLoadedInterval(ReferenceFrame frame) {
 
-        AlignmentInterval interval = intervalCache.get(frame);
-        if(interval != null && interval.getRange().contains(frame.getCurrentRange())) {
-            return interval;
-        } else {
-            for(ReferenceFrame f : intervalCache.keySet()) {
-                if(f.getCurrentRange().contains(frame.getCurrentRange())) {
-                    return intervalCache.get(f);
+            for(AlignmentInterval interval : intervalCache) {
+                if(interval.contains(frame.getCurrentRange())) {
+                    return interval;
                 }
             }
-        }
+
 
         return null;
     }
@@ -228,7 +225,7 @@ public class AlignmentDataManager implements IGVEventObserver {
      * @return Whether repacking was performed
      */
     void packAlignments(AlignmentTrack.RenderOptions renderOptions) {
-        for (AlignmentInterval interval : intervalCache.values()) {
+        for (AlignmentInterval interval : intervalCache) {
             interval.packAlignments(renderOptions);
         }
     }
@@ -282,7 +279,7 @@ public class AlignmentDataManager implements IGVEventObserver {
             log.debug("Loading alignments: " + chr + ":" + adjustedStart + "-" + adjustedEnd + " for " + AlignmentDataManager.this);
 
             AlignmentInterval loadedInterval = loadInterval(chr, adjustedStart, adjustedEnd, renderOptions);
-            intervalCache.put(referenceFrame, loadedInterval);
+            intervalCache.add(loadedInterval);
 
             packAlignments(renderOptions);
             isLoading.remove(range);
@@ -316,7 +313,7 @@ public class AlignmentDataManager implements IGVEventObserver {
      //   load(context.getReferenceFrame(), renderOptions, false);
      //   Range range = context.getReferenceFrame().getCurrentRange();
 
-        AlignmentInterval interval = intervalCache.get(context.getReferenceFrame());
+        AlignmentInterval interval = getLoadedInterval(context.getReferenceFrame());
         if (interval != null) {
             return interval.getPackedAlignments();
         } else {
@@ -329,7 +326,7 @@ public class AlignmentDataManager implements IGVEventObserver {
     }
 
     public void dumpAlignments() {
-        for (AlignmentInterval interval : intervalCache.values()) {
+        for (AlignmentInterval interval : intervalCache) {
             interval.dumpAlignments();
         }
     }
@@ -347,7 +344,7 @@ public class AlignmentDataManager implements IGVEventObserver {
         int start = (int) position;
         int end = start + 1;
 
-        AlignmentInterval interval = intervalCache.get(referenceFrame);
+        AlignmentInterval interval = getLoadedInterval(referenceFrame);
         if (interval == null) {
             return null;
         } else {
@@ -363,7 +360,7 @@ public class AlignmentDataManager implements IGVEventObserver {
     public int getNLevels() {
         int nLevels = 0;
 
-        for (AlignmentInterval interval : intervalCache.values()) {
+        for (AlignmentInterval interval : intervalCache) {
             PackedAlignments packedAlignments = interval.getPackedAlignments();
             if (packedAlignments != null) {
                 int intervalNLevels = packedAlignments.getNLevels();
@@ -379,7 +376,7 @@ public class AlignmentDataManager implements IGVEventObserver {
      */
     public int getMaxGroupCount() {
         int groupCount = 0;
-        for (AlignmentInterval interval : intervalCache.values()) {
+        for (AlignmentInterval interval : intervalCache) {
             if(interval != null) {  // Not sure how this happens but it does
                 PackedAlignments packedAlignments = interval.getPackedAlignments();
                 if (packedAlignments != null) {
@@ -417,7 +414,7 @@ public class AlignmentDataManager implements IGVEventObserver {
 
     public void setMinJunctionCoverage(int minJunctionCoverage) {
         this.loadOptions = new SpliceJunctionHelper.LoadOptions(minJunctionCoverage, this.loadOptions.minReadFlankingWidth);
-        for (AlignmentInterval interval : intervalCache.values()) {
+        for (AlignmentInterval interval : intervalCache) {
             interval.getSpliceJunctionHelper().setLoadOptions(this.loadOptions);
         }
     }
@@ -444,7 +441,7 @@ public class AlignmentDataManager implements IGVEventObserver {
     }
 
     public Collection<AlignmentInterval> getLoadedIntervals() {
-        return intervalCache.values();
+        return intervalCache;
     }
 
     public static class DownsampleOptions {
