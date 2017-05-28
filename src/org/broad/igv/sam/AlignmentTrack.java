@@ -315,15 +315,15 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
     @Override
     public IGVPopupMenu getPopupMenu(TrackClickEvent te) {
-
-        Alignment alignment = getAlignment(te);
-        if (alignment != null && alignment.getInsertions() != null) {
-            for (AlignmentBlock block : alignment.getInsertions()) {
-                if (block.containsPixel(te.getMouseEvent().getX())) {
-                    return new InsertionMenu(block);
-                }
-            }
-        }
+//
+//        Alignment alignment = getAlignment(te);
+//        if (alignment != null && alignment.getInsertions() != null) {
+//            for (AlignmentBlock block : alignment.getInsertions()) {
+//                if (block.containsPixel(te.getMouseEvent().getX())) {
+//                    return new InsertionMenu(block);
+//                }
+//            }
+//        }
 
 
         return new PopupMenu(te);
@@ -1529,7 +1529,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
         renderOptions.linkedReads = linkedReads;
         if (linkedReads == true) {
 
-            if(renderRollback == null) renderRollback = new RenderRollback(renderOptions, getDisplayMode());
+            if (renderRollback == null) renderRollback = new RenderRollback(renderOptions, getDisplayMode());
 
             renderOptions.setLinkByTag(tag);
 
@@ -1602,6 +1602,12 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
         PopupMenu(final TrackClickEvent e) {
 
+            final MouseEvent me = e.getMouseEvent();
+            ReferenceFrame frame = e.getFrame();
+            double location = frame.getChromosomePosition(me.getX());
+            Alignment clickedAlignment = getAlignmentAt(location, me.getY(), frame);
+
+
             Collection<Track> tracks = new ArrayList();
             tracks.add(AlignmentTrack.this);
 
@@ -1614,10 +1620,12 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             }
             addSeparator();
             add(TrackMenuUtils.getTrackRenameItem(tracks));
-            addCopyToClipboardItem(e);
+            addCopyToClipboardItem(e, clickedAlignment);
 
             //         addSeparator();
             //          addExpandInsertions();
+
+
 
             if (dataManager.isTenX()) {
                 addTenXItems();
@@ -1644,8 +1652,8 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             addSeparator();
             addViewAsPairsMenuItem();
 
-            addGoToMate(e);
-            showMateRegion(e);
+            addGoToMate(e, clickedAlignment);
+            showMateRegion(e, clickedAlignment);
             addInsertSizeMenuItem();
 
             addSeparator();
@@ -1658,12 +1666,14 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             addSeparator();
             addCopySequenceItem(e);
 
-            if (PreferencesManager.getPreferences().get(Constants.EXTVIEW_URL) != null) {
-                addExtViewItem(e);
-            }
-
             addBlatItem(e);
             addConsensusSequence(e);
+
+            AlignmentBlock insertion = getInsertion(clickedAlignment, e.getMouseEvent().getX());
+            if(insertion != null) {
+                addSeparator();
+                addInsertionItems(insertion);
+            }
 
             boolean showSashimi = true;//Globals.isDevelopment();
 
@@ -1681,6 +1691,13 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
             addSeparator();
             addShowItems();
+
+
+            if (PreferencesManager.getPreferences().get(Constants.EXTVIEW_URL) != null) {
+                addSeparator();;
+                addExtViewItem(e);
+            }
+
 
         }
 
@@ -2060,7 +2077,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             add(item);
         }
 
-        public void addCopyToClipboardItem(final TrackClickEvent te) {
+        public void addCopyToClipboardItem(final TrackClickEvent te, Alignment alignment) {
 
             final MouseEvent me = te.getMouseEvent();
             JMenuItem item = new JMenuItem("Copy read details to clipboard");
@@ -2070,7 +2087,6 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
                 item.setEnabled(false);
             } else {
                 final double location = frame.getChromosomePosition(me.getX());
-                final Alignment alignment = getAlignmentAt(location, me.getY(), frame);
 
                 // Change track height by attribute
                 item.addActionListener(new ActionListener() {
@@ -2092,18 +2108,15 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
         public void addViewAsPairsMenuItem() {
             final JMenuItem item = new JCheckBoxMenuItem("View as pairs");
             item.setSelected(renderOptions.isViewPairs());
-            item.addActionListener(new ActionListener() {
-
-                public void actionPerformed(ActionEvent aEvt) {
-                    boolean viewAsPairs = item.isSelected();
-                    setViewAsPairs(viewAsPairs);
-                }
+            item.addActionListener(aEvt -> {
+                boolean viewAsPairs = item.isSelected();
+                setViewAsPairs(viewAsPairs);
             });
             item.setEnabled(dataManager.isPairedEnd());
             add(item);
         }
 
-        public void addGoToMate(final TrackClickEvent te) {
+        public void addGoToMate(final TrackClickEvent te, Alignment alignment) {
             // Change track height by attribute
             JMenuItem item = new JMenuItem("Go to mate");
             MouseEvent e = te.getMouseEvent();
@@ -2112,14 +2125,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             if (frame == null) {
                 item.setEnabled(false);
             } else {
-                double location = frame.getChromosomePosition(e.getX());
-                final Alignment alignment = getAlignmentAt(location, e.getY(), frame);
-                item.addActionListener(new ActionListener() {
-
-                    public void actionPerformed(ActionEvent aEvt) {
-                        gotoMate(te, alignment);
-                    }
-                });
+                item.addActionListener(aEvt -> gotoMate(te, alignment));
                 if (alignment == null || !alignment.isPaired() || !alignment.getMate().isMapped()) {
                     item.setEnabled(false);
                 }
@@ -2127,7 +2133,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             add(item);
         }
 
-        public void showMateRegion(final TrackClickEvent te) {
+        public void showMateRegion(final TrackClickEvent te, Alignment clickedAlignment) {
             // Change track height by attribute
             JMenuItem item = new JMenuItem("View mate region in split screen");
             MouseEvent e = te.getMouseEvent();
@@ -2137,8 +2143,6 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
                 item.setEnabled(false);
             } else {
                 double location = frame.getChromosomePosition(e.getX());
-
-                Alignment clickedAlignment = getAlignmentAt(location, e.getY(), frame);
 
                 if (clickedAlignment instanceof PairedAlignment) {
                     Alignment first = ((PairedAlignment) clickedAlignment).getFirstAlignment();
@@ -2481,8 +2485,38 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             });
             add(bxItem);
         }
+
+
+        private void addInsertionItems(AlignmentBlock insertion) {
+
+            final JMenuItem item = new JMenuItem("Copy insert sequence");
+            add(item);
+            item.addActionListener(aEvt -> StringUtils.copyTextToClipboard(new String(insertion.getBases())));
+
+            if (insertion.getBases() != null && insertion.getBases().length > 10) {
+                final JMenuItem blatItem = new JMenuItem("Blat insert sequence");
+                add(blatItem);
+                blatItem.addActionListener(aEvt -> {
+                    String blatSeq = new String(insertion.getBases());
+                    BlatClient.doBlatQuery(blatSeq);
+                });
+            }
+        }
+
+
     }
 
+
+    private AlignmentBlock getInsertion(Alignment alignment, int pixelX) {
+        if (alignment != null && alignment.getInsertions() != null) {
+            for (AlignmentBlock block : alignment.getInsertions()) {
+                if (block.containsPixel(pixelX)) {
+                    return block;
+                }
+            }
+        }
+        return null;
+    }
 
     static class InsertionMenu extends IGVPopupMenu {
 
