@@ -493,7 +493,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
             insertionIntervals.add(new InsertionInterval(iRect, insertionMarker));
 
-            Color c = (selected != null && selected.position == insertionMarker.position) ? Color.red : AlignmentRenderer.purple;
+            Color c = (selected != null && selected.position == insertionMarker.position) ? new Color(200, 0, 0, 80) : AlignmentRenderer.purple;
             Graphics2D g = context.getGraphic2DForColor(c);
 
 
@@ -1604,8 +1604,12 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
             final MouseEvent me = e.getMouseEvent();
             ReferenceFrame frame = e.getFrame();
-            double location = frame.getChromosomePosition(me.getX());
-            Alignment clickedAlignment = getAlignmentAt(location, me.getY(), frame);
+            Alignment clickedAlignment = null;
+
+            if (frame != null) {
+                double location = frame.getChromosomePosition(me.getX());
+                clickedAlignment = frame == null ? null : getAlignmentAt(location, me.getY(), frame);
+            }
 
 
             Collection<Track> tracks = new ArrayList();
@@ -1624,7 +1628,6 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
             //         addSeparator();
             //          addExpandInsertions();
-
 
 
             if (dataManager.isTenX()) {
@@ -1652,8 +1655,11 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             addSeparator();
             addViewAsPairsMenuItem();
 
-            addGoToMate(e, clickedAlignment);
-            showMateRegion(e, clickedAlignment);
+            if (clickedAlignment != null) {
+                addGoToMate(e, clickedAlignment);
+                showMateRegion(e, clickedAlignment);
+            }
+
             addInsertSizeMenuItem();
 
             addSeparator();
@@ -1670,7 +1676,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
             addConsensusSequence(e);
 
             AlignmentBlock insertion = getInsertion(clickedAlignment, e.getMouseEvent().getX());
-            if(insertion != null) {
+            if (insertion != null) {
                 addSeparator();
                 addInsertionItems(insertion);
             }
@@ -1694,7 +1700,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
 
 
             if (PreferencesManager.getPreferences().get(Constants.EXTVIEW_URL) != null) {
-                addSeparator();;
+                addSeparator();
                 addExtViewItem(e);
             }
 
