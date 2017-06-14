@@ -42,7 +42,7 @@ import java.util.List;
  *
  * @author jrobinso
  */
-public class SequenceWrapper implements Sequence {
+public class SequenceWrapper implements Sequence , IGVEventObserver {
 
     private static Logger log = Logger.getLogger(SequenceWrapper.class);
     private static boolean cacheSequences = true;
