@@ -302,15 +302,30 @@ public class IGV implements IGVEventObserver {
     }
 
     private void consumeEvents(Component glassPane) {
+
         glassPane.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
+                Point glassPanePoint = e.getPoint();
+                Container container = IGV.this.contentPane;
+                Point containerPoint = SwingUtilities.convertPoint(glassPane,
+                        glassPanePoint, container);
+
+                Component component = SwingUtilities.getDeepestComponentAt(
+                        container, containerPoint.x, containerPoint.y);
+
+                if (component == IGV.this.contentPane.getStatusBar().stopButton) {
+                    IGVEventBus.getInstance().post(new StopEvent());
+                }
                 e.consume();
+
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
                 e.consume();
+
             }
         });
         glassPane.setFocusable(true);
@@ -1091,6 +1106,10 @@ public class IGV implements IGVEventObserver {
         contentPane.getStatusBar().setMessage2(message);
     }
 
+    public void enableStopButton(boolean enable) {
+        contentPane.getStatusBar().enableStopButton(enable);
+    }
+
     /**
      * Resets factory settings. this is not the same as reset user defaults
      * DO NOT DELETE used when debugging
@@ -1585,7 +1604,7 @@ public class IGV implements IGVEventObserver {
     /**
      * Load the data file into the specified panel.   Triggered via drag and drop.
      */
-    public void load(ResourceLocator locator, TrackPanel panel) throws DataLoadException {
+    public void load(final ResourceLocator locator, final TrackPanel panel) throws DataLoadException {
 
         // If this is a session  TODO -- need better "is a session?" test
         if (locator.getPath().endsWith(".xml") || locator.getPath().endsWith(("session"))) {
@@ -1593,9 +1612,12 @@ public class IGV implements IGVEventObserver {
             this.doRestoreSession(locator.getPath(), null, merge);
         } else {
             // Not a session, load into target panel
-            List<Track> tracks = load(locator);
-            panel.addTracks(tracks);
-            doRefresh();
+            Runnable runnable = () -> {
+                List<Track> tracks = load(locator);
+                panel.addTracks(tracks);
+                doRefresh();
+            };
+            LongRunningTask.submit(runnable);
         }
     }
 

@@ -276,7 +276,7 @@ public class Main {
 
 
         HttpUtils.getInstance().updateProxySettings();
-        //AbstractFeatureReader.setComponentMethods(new IGVComponentMethods());
+
         SeekableStreamFactory.setInstance(IGVSeekableStreamFactory.getInstance());
 
         RuntimeUtils.loadPluginJars();
