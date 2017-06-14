@@ -44,10 +44,10 @@ import org.broad.igv.util.ObjectCache;
 
 public class IGVReferenceSource implements CRAMReferenceSource {
 
-    ObjectCache<String, byte[]> cachedSequences = new ObjectCache<String, byte[]>(2);
+    static ObjectCache<String, byte[]> cachedSequences = new ObjectCache<String, byte[]>(2);
 
     @Override
-    public synchronized byte[] getReferenceBases(SAMSequenceRecord record, boolean tryNameVariants) {
+    public  byte[] getReferenceBases(SAMSequenceRecord record, boolean tryNameVariants) {
 
         final String name = record.getSequenceName();
 
@@ -59,7 +59,7 @@ public class IGVReferenceSource implements CRAMReferenceSource {
 
             Chromosome chromosome = GenomeManager.getInstance().getCurrentGenome().getChromosome(igvName);
 
-            bases = GenomeManager.getInstance().getCurrentGenome().getSequence(igvName, 0, chromosome.getLength());
+            bases = GenomeManager.getInstance().getCurrentGenome().getSequence(igvName, 0, chromosome.getLength(), false);
 
             // CRAM spec requires upper case
             for(int i=0; i<bases.length; i++) {

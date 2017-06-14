@@ -415,7 +415,13 @@ public class Genome {
      * @return sequence, or null if not available
      * @api
      */
+
     public byte[] getSequence(String chr, int start, int end) {
+        return getSequence(chr, start, end, true);
+    }
+
+    public byte[] getSequence(String chr, int start, int end, boolean useCache) {
+
 
         if (sequence == null) {
             return null;
@@ -429,7 +435,7 @@ public class Genome {
         if (end <= start) {
             return null;
         }
-        return sequence.getSequence(chr, start, end);
+        return sequence.getSequence(chr, start, end, useCache);
     }
 
     public String getDisplayName() {
