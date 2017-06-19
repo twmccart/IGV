@@ -2341,7 +2341,7 @@ public class AlignmentTrack extends AbstractTrack implements AlignmentTrackEvent
                 add(item);
             }
 
-            final JMenuItem alignmentItem = new JMenuItem("Hide Track");
+            final JMenuItem alignmentItem = new JMenuItem("Hide Alignment Track");
             alignmentItem.setEnabled(!AlignmentTrack.this.isRemoved());
             alignmentItem.addActionListener(new ActionListener() {
                 @Override
