@@ -30,9 +30,15 @@ package org.broad.igv.sam.cram;
 import htsjdk.samtools.SAMSequenceRecord;
 import htsjdk.samtools.cram.ref.CRAMReferenceSource;
 import htsjdk.samtools.cram.ref.ReferenceSource;
+import org.apache.log4j.Logger;
 import org.broad.igv.feature.Chromosome;
+import org.broad.igv.feature.genome.Genome;
 import org.broad.igv.feature.genome.GenomeManager;
+import org.broad.igv.ui.event.GenomeChangeEvent;
+import org.broad.igv.ui.event.IGVEventBus;
+import org.broad.igv.ui.event.IGVEventObserver;
 import org.broad.igv.util.ObjectCache;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
  * Provide a reference sequence for CRAM decompression.  Note the rule for MD5 calculation.
@@ -44,7 +50,11 @@ import org.broad.igv.util.ObjectCache;
 
 public class IGVReferenceSource implements CRAMReferenceSource {
 
+    private static Logger log = Logger.getLogger(IGVReferenceSource.class);
+
     static ObjectCache<String, byte[]> cachedSequences = new ObjectCache<String, byte[]>(2);
+
+    static GenomeChangeListener genomeChangeListener;
 
     @Override
     public  byte[] getReferenceBases(SAMSequenceRecord record, boolean tryNameVariants) {
@@ -71,7 +81,20 @@ public class IGVReferenceSource implements CRAMReferenceSource {
 
         return bases;
 
+    }
 
+    public static class GenomeChangeListener implements IGVEventObserver {
 
+        @Override
+        public void receiveEvent(Object event) {
+            cachedSequences.clear();
+        }
+    }
+
+    static {
+
+        genomeChangeListener = new GenomeChangeListener();
+
+        IGVEventBus.getInstance().subscribe(GenomeChangeEvent.class, genomeChangeListener);
     }
 }
