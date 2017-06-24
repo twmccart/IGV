@@ -89,34 +89,30 @@ public class IGVReferenceSourceTest {
         assertEquals('G', bases[27198882]);
     }
 
-    @Test
-    public void testCompressedTiming() throws Exception {
-
-        String fastaURL = "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg38/hg38.fa";
-        GenomeManager.getInstance().loadGenome(fastaURL, null);
-        IGVReferenceSource refSource = new IGVReferenceSource();
-        SAMSequenceRecord rec = new SAMSequenceRecord("1", 248956422);
-
-        long t = System.currentTimeMillis();
-        byte[] bases = refSource.getReferenceBases(rec, false);
-        assertEquals(248956422, bases.length);
-        long dt = System.currentTimeMillis() - t;
-
-
-        fastaURL = "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg38/hg38.fa.gz";
-        GenomeManager.getInstance().loadGenome(fastaURL, null);
-        refSource = new IGVReferenceSource();
-        rec = new SAMSequenceRecord("1", 248956422);
-
-        long t1 = System.currentTimeMillis();
-        bases = refSource.getReferenceBases(rec, false);
-        assertEquals(248956422, bases.length);
-        long dt1 = System.currentTimeMillis() - t1;
-
-        System.out.println(dt + "    " + dt1);
-
-        assertTrue(dt1 < dt);
-
-
-    }
+//    @Test
+//    public void testCompressedTiming() throws Exception {
+//
+//        String fastaURL = "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg38/hg38.fa";
+//        GenomeManager.getInstance().loadGenome(fastaURL, null);
+//        IGVReferenceSource refSource = new IGVReferenceSource();
+//        SAMSequenceRecord rec = new SAMSequenceRecord("1", 248956422);
+//
+//        long t = System.currentTimeMillis();
+//        byte[] bases = refSource.getReferenceBases(rec, false);
+//        assertEquals(248956422, bases.length);
+//        long dt = System.currentTimeMillis() - t;
+//
+//
+//        fastaURL = "https://s3.amazonaws.com/igv.broadinstitute.org/genomes/seq/hg38/hg38.fa.gz";
+//        GenomeManager.getInstance().loadGenome(fastaURL, null);
+//        refSource = new IGVReferenceSource();
+//        rec = new SAMSequenceRecord("1", 248956422);
+//
+//        long t1 = System.currentTimeMillis();
+//        bases = refSource.getReferenceBases(rec, false);
+//        assertEquals(248956422, bases.length);
+//        long dt1 = System.currentTimeMillis() - t1;
+//
+//        assertTrue(dt1 < dt);
+//    }
 }
