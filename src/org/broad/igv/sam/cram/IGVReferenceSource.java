@@ -29,23 +29,21 @@ package org.broad.igv.sam.cram;
 
 import htsjdk.samtools.SAMSequenceRecord;
 import htsjdk.samtools.cram.ref.CRAMReferenceSource;
-import htsjdk.samtools.cram.ref.ReferenceSource;
 import org.apache.log4j.Logger;
 import org.broad.igv.feature.Chromosome;
-import org.broad.igv.feature.genome.Genome;
 import org.broad.igv.feature.genome.GenomeManager;
+import org.broad.igv.ui.IGV;
 import org.broad.igv.ui.event.GenomeChangeEvent;
 import org.broad.igv.ui.event.IGVEventBus;
 import org.broad.igv.ui.event.IGVEventObserver;
 import org.broad.igv.util.ObjectCache;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
  * Provide a reference sequence for CRAM decompression.  Note the rule for MD5 calculation.
- *
+ * <p>
  * M5 (sequence MD5 checksum) field of @SQ sequence record in the BAM header is required and UR (URI
- for the sequence fasta optionally gzipped file) field is strongly advised. The rule for calculating MD5 is
- to remove any non-base symbols (like \n, sequence name or length and spaces) and upper case the rest.
+ * for the sequence fasta optionally gzipped file) field is strongly advised. The rule for calculating MD5 is
+ * to remove any non-base symbols (like \n, sequence name or length and spaces) and upper case the rest.
  */
 
 public class IGVReferenceSource implements CRAMReferenceSource {
@@ -57,7 +55,7 @@ public class IGVReferenceSource implements CRAMReferenceSource {
     static GenomeChangeListener genomeChangeListener;
 
     @Override
-    public  byte[] getReferenceBases(SAMSequenceRecord record, boolean tryNameVariants) {
+    public byte[] getReferenceBases(SAMSequenceRecord record, boolean tryNameVariants) {
 
         final String name = record.getSequenceName();
 
@@ -67,16 +65,22 @@ public class IGVReferenceSource implements CRAMReferenceSource {
 
         if (bases == null) {
 
-            Chromosome chromosome = GenomeManager.getInstance().getCurrentGenome().getChromosome(igvName);
+            try {
+                if (IGV.hasInstance()) IGV.getInstance().setStatusBarMessage("Loading sequence");
 
-            bases = GenomeManager.getInstance().getCurrentGenome().getSequence(igvName, 0, chromosome.getLength(), false);
+                Chromosome chromosome = GenomeManager.getInstance().getCurrentGenome().getChromosome(igvName);
 
-            // CRAM spec requires upper case
-            for(int i=0; i<bases.length; i++) {
-                if(bases[i] >= 97) bases[i] -= 32;
+                bases = GenomeManager.getInstance().getCurrentGenome().getSequence(igvName, 0, chromosome.getLength(), false);
+
+                // CRAM spec requires upper case
+                for (int i = 0; i < bases.length; i++) {
+                    if (bases[i] >= 97) bases[i] -= 32;
+                }
+
+                cachedSequences.put(igvName, bases);
+            } finally {
+                if (IGV.hasInstance()) IGV.getInstance().setStatusBarMessage("");
             }
-
-            cachedSequences.put(igvName, bases);
         }
 
         return bases;

@@ -1095,15 +1095,12 @@ public class IGV implements IGVEventObserver {
         contentPane.getStatusBar().setMessage(message);
     }
 
-    /**
-     * Set the status bar message.  If the message equals "Done." intercept
-     * and reset to the default "quite" message,  currently the number of tracks
-     * loaded.
-     *
-     * @param message
-     */
-    public void setStatusBarPosition(String message) {
+    public void setStatusBarMessag2(String message) {
         contentPane.getStatusBar().setMessage2(message);
+    }
+
+    public void setStatusBarMessage3(String message) {
+        contentPane.getStatusBar().setMessage3(message);
     }
 
     public void enableStopButton(boolean enable) {
