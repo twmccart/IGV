@@ -26,6 +26,7 @@
 package org.broad.igv.sam;
 
 import org.apache.log4j.Logger;
+import org.broad.igv.event.RefreshEvent;
 import org.broad.igv.feature.Range;
 import org.broad.igv.feature.genome.Genome;
 import org.broad.igv.prefs.IGVPreferences;
@@ -33,9 +34,9 @@ import org.broad.igv.prefs.PreferencesManager;
 import org.broad.igv.sam.AlignmentTrack.SortOption;
 import org.broad.igv.sam.reader.AlignmentReaderFactory;
 import org.broad.igv.track.RenderContext;
-import org.broad.igv.ui.event.DataLoadedEvent;
-import org.broad.igv.ui.event.IGVEventBus;
-import org.broad.igv.ui.event.IGVEventObserver;
+import org.broad.igv.event.DataLoadedEvent;
+import org.broad.igv.event.IGVEventBus;
+import org.broad.igv.event.IGVEventObserver;
 import org.broad.igv.ui.panel.FrameManager;
 import org.broad.igv.ui.panel.ReferenceFrame;
 import org.broad.igv.util.ResourceLocator;
@@ -71,7 +72,9 @@ public class AlignmentDataManager implements IGVEventObserver {
         initLoadOptions();
         initChrMap(genome);
         intervalCache = Collections.synchronizedList(new ArrayList<>());
+
         IGVEventBus.getInstance().subscribe(FrameManager.ChangeEvent.class, this);
+        IGVEventBus.getInstance().subscribe(RefreshEvent.class, this);
     }
 
     public void receiveEvent(Object event) {
@@ -82,15 +85,17 @@ public class AlignmentDataManager implements IGVEventObserver {
             Collection<AlignmentInterval> newCache = Collections.synchronizedList(new ArrayList<>());
 
             // Trim cache to include only current frames
-            for(ReferenceFrame f : frames) {
+            for (ReferenceFrame f : frames) {
                 AlignmentInterval i = getLoadedInterval(f);
-                if(i != null) {
+                if (i != null) {
                     newCache.add(i);
                 }
             }
             intervalCache = newCache;
 
 
+        } else if (event instanceof RefreshEvent) {
+            clear();
         } else {
             log.info("Unknown event type: " + event.getClass());
         }
@@ -172,11 +177,11 @@ public class AlignmentDataManager implements IGVEventObserver {
 
     public AlignmentInterval getLoadedInterval(ReferenceFrame frame) {
 
-            for(AlignmentInterval interval : intervalCache) {
-                if(interval.contains(frame.getCurrentRange())) {
-                    return interval;
-                }
+        for (AlignmentInterval interval : intervalCache) {
+            if (interval.contains(frame.getCurrentRange())) {
+                return interval;
             }
+        }
 
 
         return null;
@@ -232,14 +237,14 @@ public class AlignmentDataManager implements IGVEventObserver {
 
 
     public boolean isLoaded(ReferenceFrame frame) {
-       return getLoadedInterval(frame) != null;
+        return getLoadedInterval(frame) != null;
     }
 
     public boolean isLoading(ReferenceFrame frame) {
 
         Range range = frame.getCurrentRange();
-        for(Range r : isLoading) {
-            if(r.contains(range)) return true;
+        for (Range r : isLoading) {
+            if (r.contains(range)) return true;
         }
         return false;
     }
@@ -251,7 +256,7 @@ public class AlignmentDataManager implements IGVEventObserver {
 
         if (isLoaded(referenceFrame)) return;  // Already loaded
 
-        if(isLoading(referenceFrame)) return;   // Already oading
+        if (isLoading(referenceFrame)) return;   // Already oading
 
         synchronized (loadLock) {
             Range range = referenceFrame.getCurrentRange();
@@ -285,6 +290,7 @@ public class AlignmentDataManager implements IGVEventObserver {
             isLoading.remove(range);
 
             IGVEventBus.getInstance().post(new DataLoadedEvent(referenceFrame));
+
 
         }
     }
@@ -377,7 +383,7 @@ public class AlignmentDataManager implements IGVEventObserver {
     public int getMaxGroupCount() {
         int groupCount = 0;
         for (AlignmentInterval interval : intervalCache) {
-            if(interval != null) {  // Not sure how this happens but it does
+            if (interval != null) {  // Not sure how this happens but it does
                 PackedAlignments packedAlignments = interval.getPackedAlignments();
                 if (packedAlignments != null) {
                     groupCount = Math.max(groupCount, packedAlignments.size());

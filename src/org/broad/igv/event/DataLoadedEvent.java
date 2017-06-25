@@ -23,37 +23,24 @@
  * THE SOFTWARE.
  */
 
-package org.broad.igv.ui.event;
+package org.broad.igv.event;
 
-import java.util.EventObject;
+import org.broad.igv.track.RenderContext;
+import org.broad.igv.ui.panel.ReferenceFrame;
 
 /**
- * @author Jim Robinson
- * @date 12/2/11
+ * User: jacob
+ * Date: 2013-Feb-06
  */
-public class AlignmentTrackEvent extends EventObject {
+public class DataLoadedEvent {
 
-    public enum Type {SPLICE_JUNCTION, VISIBILITY_WINDOW, ALLELE_THRESHOLD, RELOAD, REFRESH, VISIBLE}
+    public final ReferenceFrame referenceFrame;
 
-    private Type type;
-    private boolean booleanValue;
-
-    public AlignmentTrackEvent(Object source, Type type) {
-        super(source);
-        this.type = type;
+    public DataLoadedEvent(ReferenceFrame referenceFrame){
+        this.referenceFrame = referenceFrame;
     }
 
-    public AlignmentTrackEvent(Object source, Type type, boolean booleanValue) {
-        super(source);
-        this.type = type;
-        this.booleanValue = booleanValue;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public boolean getBooleanValue() {
-        return booleanValue;
+    public ReferenceFrame getReferenceFrame() {
+        return referenceFrame;
     }
 }

@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-package org.broad.igv.ui.event;
+package org.broad.igv.event;
 
 
 import org.apache.log4j.Logger;

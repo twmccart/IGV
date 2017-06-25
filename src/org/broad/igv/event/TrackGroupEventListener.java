@@ -23,16 +23,15 @@
  * THE SOFTWARE.
  */
 
-package org.broad.igv.ui.event;
+package org.broad.igv.event;
 
 import java.util.EventListener;
 
 /**
  * @author Jim Robinson
- * @date 12/2/11
+ * @date 10/28/11
  */
-public interface AlignmentTrackEventListener extends EventListener {
+public interface TrackGroupEventListener extends EventListener {
 
-    public  void onAlignmentTrackEvent(AlignmentTrackEvent e);
-
+    public  void onTrackGroupEvent(TrackGroupEvent e);
 }

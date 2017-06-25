@@ -23,42 +23,16 @@
  * THE SOFTWARE.
  */
 
-package org.broad.igv.ui.event;
+package org.broad.igv.event;
+
+import java.util.EventListener;
 
 /**
- * Events which either cause or are the result of changes in the zoom level
- * User: jacob
- * Date: 2013-Jan-30
+ * @author Jim Robinson
+ * @date 12/2/11
  */
-public class ZoomChange {
+public interface AlignmentTrackEventListener extends EventListener {
 
+    public  void onAlignmentTrackEvent(AlignmentTrackEvent e);
 
-    /**
-     * Event indicating that the zoom should change. This event
-     * will generally be sent by UI components which want to change
-     * the zoom
-     */
-    public static class Cause{
-        //public final int oldZoom;
-        public final int newZoom;
-        //public final Object source;
-
-        public Cause(int newZoom){
-            //this.oldZoom = oldZoom;
-            this.newZoom = newZoom;
-            //this.source = source;
-        }
-    }
-
-    /**
-     * Event dispatched after objects have changed their zoom level,
-     * generally so UI components can repaint
-     */
-    public static class Result{
-        public final int currentZoom;
-
-        public Result(int currentZoom){
-            this.currentZoom = currentZoom;
-        }
-    }
 }

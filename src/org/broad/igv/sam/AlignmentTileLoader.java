@@ -34,14 +34,13 @@ import org.broad.igv.prefs.PreferencesManager;
 import org.broad.igv.sam.reader.AlignmentReader;
 import org.broad.igv.sam.reader.ReadGroupFilter;
 import org.broad.igv.ui.IGV;
-import org.broad.igv.ui.event.IGVEventBus;
-import org.broad.igv.ui.event.IGVEventObserver;
-import org.broad.igv.ui.event.StopEvent;
+import org.broad.igv.event.IGVEventBus;
+import org.broad.igv.event.IGVEventObserver;
+import org.broad.igv.event.StopEvent;
 import org.broad.igv.ui.util.MessageUtils;
 import org.broad.igv.util.ObjectCache;
 import org.broad.igv.util.RuntimeUtils;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.*;

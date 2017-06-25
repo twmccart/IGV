@@ -24,10 +24,13 @@
  * THE SOFTWARE.
  */
 
-package org.broad.igv.ui.event;
+package org.broad.igv.event;
 
 /**
  * Created by jrobinson on 6/3/16.
  */
-public class ReferenceFrameEvent {
+public interface IGVEventObserver {
+
+    void receiveEvent(Object event);
+
 }

@@ -7,8 +7,8 @@ import org.broad.igv.sam.AlignmentTrack;
 import org.broad.igv.ui.AboutDialog;
 import org.broad.igv.ui.IGVCommandBar;
 import org.broad.igv.ui.color.ColorUtilities;
-import org.broad.igv.ui.event.IGVEventBus;
-import org.broad.igv.ui.event.IGVEventObserver;
+import org.broad.igv.event.IGVEventBus;
+import org.broad.igv.event.IGVEventObserver;
 import org.broad.igv.util.ParsingUtils;
 
 import java.awt.*;

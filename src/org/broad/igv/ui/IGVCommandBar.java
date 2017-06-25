@@ -36,6 +36,7 @@ import com.jidesoft.swing.JideButton;
 import com.jidesoft.swing.JideToggleButton;
 import org.apache.log4j.Logger;
 import org.broad.igv.Globals;
+import org.broad.igv.event.*;
 import org.broad.igv.feature.Chromosome;
 import org.broad.igv.feature.Cytoband;
 import org.broad.igv.feature.FeatureDB;
@@ -49,7 +50,6 @@ import org.broad.igv.prefs.PreferencesManager;
 import org.broad.igv.session.History;
 import org.broad.igv.ui.action.FitDataToWindowMenuAction;
 import org.broad.igv.ui.action.SearchCommand;
-import org.broad.igv.ui.event.*;
 import org.broad.igv.ui.panel.FrameManager;
 import org.broad.igv.ui.panel.IGVPopupMenu;
 import org.broad.igv.ui.panel.ReferenceFrame;
@@ -838,8 +838,13 @@ public class IGVCommandBar extends javax.swing.JPanel implements IGVEventObserve
     }
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        IGV.getInstance().doRefresh();
+
+        IGVEventBus.getInstance().post(new org.broad.igv.event.RefreshEvent());
+        if(IGV.hasInstance()) {
+            IGV.getInstance().doRefresh();
+        }
         System.gc();
+
     }
 
     private void chromosomeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {

@@ -1,8 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 University of California San Diego
- * Author: Jim Robinson
+ * Copyright (c) 2007-2015 Broad Institute
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +23,37 @@
  * THE SOFTWARE.
  */
 
-package org.broad.igv.ui.event;
+package org.broad.igv.event;
+
+import java.util.EventObject;
 
 /**
- * Created by jrobinson on 6/3/16.
+ * @author Jim Robinson
+ * @date 12/2/11
  */
-public interface IGVEventObserver {
+public class AlignmentTrackEvent extends EventObject {
 
-    void receiveEvent(Object event);
+    public enum Type {SPLICE_JUNCTION, VISIBILITY_WINDOW, ALLELE_THRESHOLD, RELOAD, REFRESH, VISIBLE}
 
+    private Type type;
+    private boolean booleanValue;
+
+    public AlignmentTrackEvent(Object source, Type type) {
+        super(source);
+        this.type = type;
+    }
+
+    public AlignmentTrackEvent(Object source, Type type, boolean booleanValue) {
+        super(source);
+        this.type = type;
+        this.booleanValue = booleanValue;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public boolean getBooleanValue() {
+        return booleanValue;
+    }
 }

@@ -27,16 +27,11 @@
 package org.broad.igv.ui.util;
 
 import com.jidesoft.swing.JideBoxLayout;
-import com.jidesoft.swing.JideButton;
 import org.apache.log4j.Logger;
 import org.broad.igv.ui.FontManager;
-import org.broad.igv.ui.event.IGVEventBus;
-import org.broad.igv.ui.event.StopEvent;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.util.TimerTask;
 

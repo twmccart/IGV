@@ -27,7 +27,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.broad.igv.ui.event;
+package org.broad.igv.event;
 
 import htsjdk.tribble.Feature;
 import org.apache.log4j.Logger;

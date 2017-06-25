@@ -1,4 +1,4 @@
-package org.broad.igv.ui.event;
+package org.broad.igv.event;
 
 /**
  * Created by jrobinso on 6/13/17.
