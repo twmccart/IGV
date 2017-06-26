@@ -2,12 +2,19 @@ package org.broad.igv.sam.cram;
 
 import com.google.common.io.LittleEndianDataInputStream;
 import com.google.common.io.LittleEndianDataOutputStream;
+import oracle.jdbc.proxy.annotation.Pre;
+import org.apache.log4j.Logger;
 import org.broad.igv.DirectoryManager;
+import org.broad.igv.feature.genome.Genome;
 import org.broad.igv.prefs.Constants;
 import org.broad.igv.prefs.PreferencesManager;
 import org.broad.igv.util.HttpUtils;
 
 import java.io.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.zip.*;
 
 /**
@@ -18,40 +25,58 @@ import java.util.zip.*;
 
 public class ReferenceDiskCache {
 
-    private static int MAX_SIZE = 1000000000;  // 1 GB,  make user preference?
+    private static final int MAX_SIZE = 100000000;  // 1 GB,  make user preference?
 
+    private static Logger log = Logger.getLogger(ReferenceDiskCache.class);
 
-    public static void saveSequence(String genomeId, String chr, byte[] bytes) throws IOException {
+    private static final ExecutorService threadExecutor = Executors.newFixedThreadPool(1);
 
-        File genomeDir = getGenomeDirectory(genomeId);
+    public static void saveSequence(final String genomeId, final String chr, final byte[] bytes) throws IOException {
 
-        FileOutputStream fos = null;
+        threadExecutor.submit(() -> {
+            {
+                File cacheDir = getCacheDirectory();
 
-        try {
-            File outputFile = new File(genomeDir, chr + ".bin");
+                FileOutputStream fos = null;
+                final File outputFile = new File(cacheDir, getFileName(genomeId, chr));
+                try {
 
-            final FileOutputStream out = new FileOutputStream(outputFile);
+                    final FileOutputStream out = new FileOutputStream(outputFile);
 
-            LittleEndianDataOutputStream dos = new LittleEndianDataOutputStream(out);
-            dos.writeInt(bytes.length);
+                    LittleEndianDataOutputStream dos = new LittleEndianDataOutputStream(out);
+                    dos.writeInt(bytes.length);
 
-            DeflaterOutputStream gzipOutputStream = new DeflaterOutputStream(out);
-            gzipOutputStream.write(bytes);
-            gzipOutputStream.flush();
-            gzipOutputStream.close();
-        } finally {
-            if (fos != null) {
-                fos.close();
+                    DeflaterOutputStream gzipOutputStream = new DeflaterOutputStream(out);
+                    gzipOutputStream.write(bytes);
+                    gzipOutputStream.flush();
+                    gzipOutputStream.close();
+
+                    checkCacheSize();
+
+                } catch (Exception e) {
+
+                    log.error("Error saving CRAM reference sequence", e);
+                    outputFile.delete();
+
+                } finally {
+                    if (fos != null) {
+                        try {
+                            fos.close();
+                        } catch (IOException e) {
+
+                        }
+                    }
+                }
             }
-        }
+        });
     }
 
     public static byte[] readSequence(String genomeId, String chr) throws IOException {
 
-        File genomeDir = getGenomeDirectory(genomeId);
-        File seqFile = new File(genomeDir, chr + ".bin");
+        File cacheDirectory = getCacheDirectory();
+        File seqFile = new File(cacheDirectory, getFileName(genomeId, chr));
 
-        if(!seqFile.exists()) return null;
+        if (!seqFile.exists()) return null;
 
         FileInputStream fis = null;
 
@@ -60,22 +85,21 @@ public class ReferenceDiskCache {
             LittleEndianDataInputStream dis = new LittleEndianDataInputStream(fis);
 
             int size = dis.readInt();
+
             InflaterInputStream gis = new InflaterInputStream(fis);   //new ByteArrayInputStream(compressedBytes));
-            byte [] buffer = new byte[size];
+            byte[] buffer = new byte[size];
             HttpUtils.readFully(gis, buffer);
-
             return buffer;
-
-        }
-        finally {
-            if(fis != null) fis.close();
+        } finally {
+            if (fis != null) fis.close();
         }
 
 
     }
 
-    private static File getGenomeDirectory(String genomeId) {
-        String rootDirectoryString = PreferencesManager.getPreferences().get(Constants.CRAM_SEQUENCE_DIRECTORY);
+    private static File getCacheDirectory() {
+
+        String rootDirectoryString = PreferencesManager.getPreferences().get(Constants.CRAM_CACHE_DIRECTORY);
 
         File rootDirectory;
         if (rootDirectoryString != null) {
@@ -88,12 +112,40 @@ public class ReferenceDiskCache {
             rootDirectory.mkdir();
         }
 
-        File genomeDir = new File(rootDirectory, genomeId);
-        if (!genomeDir.exists()) {
-            genomeDir.mkdir();
-        }
-        return genomeDir;
+        return rootDirectory;
     }
 
 
+    private static synchronized void checkCacheSize() {
+
+        File cacheDir = getCacheDirectory();
+        if(!cacheDir.exists()) {
+            return;
+        }
+
+        File[] files = cacheDir.listFiles((dir, name) -> {return name.toLowerCase().endsWith(".bin");});
+        Arrays.sort(files, Comparator.comparingLong(File::lastModified).reversed());
+
+        int maxSize = PreferencesManager.getPreferences().getAsInt(Constants.CRAM_CACHE_SIZE);
+        int totalSize = 0;
+        for(File f : files) {
+            if(totalSize > MAX_SIZE) {
+                f.delete();
+            }
+            else {
+                totalSize += f.length();
+            }
+        }
+    }
+
+
+    public static void deleteCache(String genomeId, String chr) {
+        (new File(getFileName(genomeId, chr))).delete();
+    }
+
+
+    private static String getFileName(String genomeId, String chr) {
+        // genomeIds can be full paths and other illegal filename strings.
+        return String.valueOf(genomeId.hashCode()) + "-" + chr + ".bin";
+    }
 }

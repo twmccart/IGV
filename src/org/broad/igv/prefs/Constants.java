@@ -52,8 +52,9 @@ final public class Constants {
     public static final String EXTVIEW_URL = "EXTVIEW_URL";
     public static final String DATA_SERVER_URL_KEY = "MASTER_RESOURCE_FILE_KEY";
 
-    public static final String CRAM_CACHE_SEQUENCES = "CRAM_CACHE_SEQUENCES";
-    public static final String CRAM_SEQUENCE_DIRECTORY = "CRAM_SEQUENCE_DIRECTORY";
+    public static final String CRAM_CACHE_SEQUENCES = "CRAM.CACHE_SEQUENCES";
+    public static final String CRAM_CACHE_DIRECTORY = "CRAM.CACHE_DIRECTORY";
+    public static final String CRAM_CACHE_SIZE = "CRAM.CACHE_SIZE";
 
     // Search ("go to") options
     public static final String SEARCH_ZOOM = "SEARCH_ZOOM";

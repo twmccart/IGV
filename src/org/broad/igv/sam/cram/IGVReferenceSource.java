@@ -60,13 +60,15 @@ public class IGVReferenceSource implements CRAMReferenceSource {
     static GenomeChangeListener genomeChangeListener;
 
     @Override
-    public byte[] getReferenceBases(SAMSequenceRecord record, boolean tryNameVariants) {
+
+    public synchronized byte[] getReferenceBases(SAMSequenceRecord record, boolean tryNameVariants) {
+
 
         final String name = record.getSequenceName();
 
         final Genome currentGenome = GenomeManager.getInstance().getCurrentGenome();
-
         String chrName = currentGenome.getCanonicalChrName(name);
+        Chromosome chromosome = currentGenome.getChromosome(chrName);
 
         byte[] bases = cachedSequences.get(chrName);
 
@@ -79,13 +81,19 @@ public class IGVReferenceSource implements CRAMReferenceSource {
 
                 if (cacheOnDisk) {
                     bases = readBasesFromCache(currentGenome, chrName);
+                    if (bases != null) {
+                        if (bases.length != chromosome.getLength()) {
+                            log.error("CRAM reference cache mismatch");
+                            ReferenceDiskCache.deleteCache(currentGenome.getId(), chrName);
+                            bases = null;
+                        }
+                    }
                 }
 
                 if (bases == null) {
 
                     if (IGV.hasInstance()) IGV.getInstance().setStatusBarMessage("Loading sequence");
 
-                    Chromosome chromosome = currentGenome.getChromosome(chrName);
 
                     bases = currentGenome.getSequence(chrName, 0, chromosome.getLength(), false);
 
@@ -96,7 +104,6 @@ public class IGVReferenceSource implements CRAMReferenceSource {
 
                     if (cacheOnDisk) {
                         saveBasesToCache(currentGenome, chrName, bases);
-                        log.info("Saved bases " + bases.length);
                     }
                 }
 
