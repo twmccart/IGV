@@ -31,12 +31,17 @@ import htsjdk.samtools.SAMSequenceRecord;
 import htsjdk.samtools.cram.ref.CRAMReferenceSource;
 import org.apache.log4j.Logger;
 import org.broad.igv.feature.Chromosome;
+import org.broad.igv.feature.genome.Genome;
 import org.broad.igv.feature.genome.GenomeManager;
+import org.broad.igv.prefs.Constants;
+import org.broad.igv.prefs.PreferencesManager;
 import org.broad.igv.ui.IGV;
 import org.broad.igv.event.GenomeChangeEvent;
 import org.broad.igv.event.IGVEventBus;
 import org.broad.igv.event.IGVEventObserver;
 import org.broad.igv.util.ObjectCache;
+
+import java.io.IOException;
 
 /**
  * Provide a reference sequence for CRAM decompression.  Note the rule for MD5 calculation.
@@ -59,25 +64,43 @@ public class IGVReferenceSource implements CRAMReferenceSource {
 
         final String name = record.getSequenceName();
 
-        String igvName = GenomeManager.getInstance().getCurrentGenome().getCanonicalChrName(name);
+        final Genome currentGenome = GenomeManager.getInstance().getCurrentGenome();
 
-        byte[] bases = cachedSequences.get(igvName);
+        String chrName = currentGenome.getCanonicalChrName(name);
+
+        byte[] bases = cachedSequences.get(chrName);
 
         if (bases == null) {
 
             try {
-                if (IGV.hasInstance()) IGV.getInstance().setStatusBarMessage("Loading sequence");
 
-                Chromosome chromosome = GenomeManager.getInstance().getCurrentGenome().getChromosome(igvName);
+                final boolean cacheOnDisk = currentGenome.sequenceIsRemote() &&
+                        PreferencesManager.getPreferences().getAsBoolean(Constants.CRAM_CACHE_SEQUENCES);
 
-                bases = GenomeManager.getInstance().getCurrentGenome().getSequence(igvName, 0, chromosome.getLength(), false);
-
-                // CRAM spec requires upper case
-                for (int i = 0; i < bases.length; i++) {
-                    if (bases[i] >= 97) bases[i] -= 32;
+                if (cacheOnDisk) {
+                    bases = readBasesFromCache(currentGenome, chrName);
                 }
 
-                cachedSequences.put(igvName, bases);
+                if (bases == null) {
+
+                    if (IGV.hasInstance()) IGV.getInstance().setStatusBarMessage("Loading sequence");
+
+                    Chromosome chromosome = currentGenome.getChromosome(chrName);
+
+                    bases = currentGenome.getSequence(chrName, 0, chromosome.getLength(), false);
+
+                    // CRAM spec requires upper case
+                    for (int i = 0; i < bases.length; i++) {
+                        if (bases[i] >= 97) bases[i] -= 32;
+                    }
+
+                    if (cacheOnDisk) {
+                        saveBasesToCache(currentGenome, chrName, bases);
+                        log.info("Saved bases " + bases.length);
+                    }
+                }
+
+                cachedSequences.put(chrName, bases);
             } finally {
                 if (IGV.hasInstance()) IGV.getInstance().setStatusBarMessage("");
             }
@@ -85,6 +108,25 @@ public class IGVReferenceSource implements CRAMReferenceSource {
 
         return bases;
 
+    }
+
+    private void saveBasesToCache(Genome currentGenome, String chrName, byte[] bases) {
+        try {
+            ReferenceDiskCache.saveSequence(currentGenome.getId(), chrName, bases);
+        } catch (IOException e) {
+            log.error("Error saving cached sequence ", e);
+        }
+    }
+
+    private byte[] readBasesFromCache(Genome currentGenome, String chrName) {
+
+
+        try {
+            return ReferenceDiskCache.readSequence(currentGenome.getId(), chrName);
+        } catch (IOException e) {
+            log.error("Error reading cached sequence ", e);
+            return null;
+        }
     }
 
     public static class GenomeChangeListener implements IGVEventObserver {
@@ -101,4 +143,6 @@ public class IGVReferenceSource implements CRAMReferenceSource {
 
         IGVEventBus.getInstance().subscribe(GenomeChangeEvent.class, genomeChangeListener);
     }
+
+
 }
