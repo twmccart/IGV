@@ -38,6 +38,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import org.broad.igv.DirectoryManager;
 import org.broad.igv.Globals;
+import org.broad.igv.event.GenomeResetEvent;
 import org.broad.igv.feature.*;
 import org.broad.igv.feature.genome.fasta.FastaBlockCompressedSequence;
 import org.broad.igv.feature.genome.fasta.FastaDirectorySequence;
@@ -1014,6 +1015,9 @@ public class GenomeManager {
 
         try {
             List<GenomeListItem> list = getCachedGenomeArchiveList();
+
+            list.sort((o1, o2) -> o1.getDisplayableName().compareTo(o2.getDisplayableName()));
+
             for (GenomeListItem item : list) {
                 genomeItemMap.put(item.getId(), item);
             }
@@ -1724,6 +1728,8 @@ public class GenomeManager {
                     genFile.delete();
                 }
             }
+
+            cachedGenomeArchiveList.removeAll(removedValuesList);
         }
     }
 
@@ -1735,5 +1741,25 @@ public class GenomeManager {
             userDefinedGenomeArchiveList.remove(genomeListItem);
             GenomeManager.getInstance().updateImportedGenomePropertyFile();
         }
+    }
+
+    public void downloadGenomes(final List<GenomeListItem> addValuesList) {
+
+        Runnable runnable = () -> {
+            for (GenomeListItem item : addValuesList) {
+                try {
+                    getArchiveFile(item.getLocation());
+                    cachedGenomeArchiveList.add(item);
+                } catch (Exception e) {
+                    log.error("Error loading genome " + item.getDisplayableName());
+                }
+            }
+            buildGenomeItemList();
+            IGVEventBus.getInstance().post(new GenomeResetEvent());
+        };
+
+        LongRunningTask.submit(runnable);
+
+
     }
 }

@@ -8,8 +8,6 @@ import java.util.Arrays;
 final public class Constants {
 
 
-    final static public String GENOME_ID_DISPLAY_LIST_KEY = "GENOME_LIST";
-
     private Constants() {}  // Prevent instantiation
 
     // Preference sets

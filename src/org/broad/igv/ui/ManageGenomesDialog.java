@@ -33,7 +33,6 @@ import org.broad.igv.Globals;
 import org.broad.igv.feature.genome.GenomeListItem;
 import org.broad.igv.feature.genome.GenomeManager;
 import org.broad.igv.prefs.IGVPreferences;
-import org.broad.igv.prefs.PreferencesManager;
 import org.broad.igv.ui.util.MessageUtils;
 
 import javax.swing.*;
@@ -44,6 +43,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -56,10 +56,11 @@ import java.util.List;
  */
 public class ManageGenomesDialog extends JDialog {
 
-    private List<GenomeListItem> allListItems;
     private boolean cancelled = true;
-    private List<GenomeListItem> removedValuesList = new ArrayList<GenomeListItem>();
-    private GenomeListItem currentGenomeItem = null;
+    private List<GenomeListItem> allListItems;
+    private List<GenomeListItem> removedValuesList;
+    private List<GenomeListItem> addValuesList;
+
 
     private boolean haveLocalGenomes = false;
     private static final String LOCAL_SEQUENCE_CHAR = "\u002A";
@@ -74,7 +75,11 @@ public class ManageGenomesDialog extends JDialog {
     }
 
     private void initData() {
-        allListItems = new ArrayList<GenomeListItem>(GenomeManager.getInstance().getGenomeListItems());
+
+        allListItems = new ArrayList<>(GenomeManager.getInstance().getGenomeListItems());
+        removedValuesList = new ArrayList<>();
+        addValuesList = new ArrayList<>();
+
         for(GenomeListItem item: allListItems){
             if(item.hasDownloadedSequence()){
                 haveLocalGenomes = true;
@@ -82,7 +87,6 @@ public class ManageGenomesDialog extends JDialog {
             }
         }
         String genomeId = GenomeManager.getInstance().getGenomeId();
-        currentGenomeItem = GenomeManager.getInstance().getLoadedGenomeListItemById(genomeId);
         buildList();
         genomeList.setTransferHandler(new SimpleTransferHandler());
 
@@ -90,45 +94,35 @@ public class ManageGenomesDialog extends JDialog {
         label2.setVisible(haveLocalGenomes);
     }
 
-
     private void buildList() {
         genomeList.setListData(allListItems.toArray());
     }
 
     private void cancelButtonActionPerformed(ActionEvent e) {
         cancelled = true;
-        removedValuesList = null;
         setVisible(false);
     }
 
     private void saveButtonActionPerformed(ActionEvent e) {
-        if(removedValuesList.size() > 0){
-            int countHasSeq = 0;
-            for(GenomeListItem item: removedValuesList){
-                if(item.hasDownloadedSequence()){
-                    countHasSeq++;
-                }
-            }
-        }
 
-        PreferencesManager.getPreferences().saveGenomeIdDisplayList(allListItems);
         cancelled = false;
         setVisible(false);
     }
 
     private void removeSelected() {
         List<GenomeListItem> selectedValuesList = genomeList.getSelectedValuesList();
-//        if (selectedValuesList.contains(currentGenomeItem)) {
-//            MessageUtils.showMessage("Cannot remove currently selected genome " + currentGenomeItem.getDisplayableName());
-//            return;
-//        }
         removedValuesList.addAll(selectedValuesList);
         allListItems.removeAll(selectedValuesList);
+        addValuesList.removeAll(selectedValuesList);
         buildList();
     }
 
     public List<GenomeListItem> getRemovedValuesList() {
         return removedValuesList;
+    }
+
+    public List<GenomeListItem> getAddValuesList() {
+        return addValuesList;
     }
 
     private void genomeListKeyReleased(KeyEvent e) {
@@ -152,8 +146,109 @@ public class ManageGenomesDialog extends JDialog {
         dialog.setVisible(true);
         List<GenomeListItem> selectedValues = dialog.getSelectedValuesList();
         if (selectedValues != null) {
+            addValuesList.addAll(selectedValues);
             allListItems.addAll(selectedValues);
             buildList();
+        }
+    }
+
+    public boolean isCancelled() {
+        return cancelled;
+    }
+
+    private int findItem(String text) {
+        int index = 0;
+        for (GenomeListItem item : allListItems) {
+            if (item.getId().equals(text) || item.getDisplayableName().equals(text)) {
+                return index;
+            }
+            index++;
+        }
+        return -1;
+
+    }
+
+    private class SimpleTransferHandler extends TransferHandler {
+        @Override
+        public int getSourceActions(JComponent c) {
+            return TransferHandler.MOVE;
+        }
+
+        @Override
+        protected Transferable createTransferable(JComponent c) {
+            return new StringSelection(IGVPreferences.generateGenomeIdString(genomeList.getSelectedValuesList()));
+        }
+
+        @Override
+        public boolean importData(TransferSupport support) {
+            if (!canImport(support)) {
+                return false;
+            }
+            JList.DropLocation dropLocation = (JList.DropLocation) support.getDropLocation();
+            int toIndex = dropLocation.getIndex();
+            String[] genomeIds;
+            try {
+                String genomeIdString = (String) support.getTransferable().getTransferData(DataFlavor.stringFlavor);
+                genomeIds = genomeIdString.split(Globals.HISTORY_DELIMITER);
+            } catch (UnsupportedFlavorException e) {
+                return false;
+            } catch (IOException e) {
+                return false;
+            }
+
+            if (genomeIds == null || genomeIds.length == 0) {
+                return false;
+            }
+
+            int numMoved = 0;
+            for (String genomeId : genomeIds) {
+                int fromIndex = findItem(genomeId);
+                if (fromIndex < 0 || fromIndex >= allListItems.size() || fromIndex == toIndex) {
+                    continue;
+                }
+                //We need to account for the fact that the proper
+                //insertion location is one smaller, once the item being moved
+                //is removed.
+                if (toIndex > fromIndex) toIndex--;
+                GenomeListItem item = allListItems.remove(fromIndex);
+                allListItems.add(toIndex, item);
+                numMoved++;
+                //Account for adding multiple items, want to add them to successive indices
+                toIndex++;
+            }
+            buildList();
+            return numMoved > 0;
+        }
+
+        @Override
+        public boolean canImport(TransferSupport support) {
+            support.setShowDropLocation(true);
+            return support.isDrop();
+        }
+    }
+
+    private class GenomeCellRenderer implements ListCellRenderer{
+        @Override
+        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+
+            JLabel comp = new JLabel(value.toString());
+
+            GenomeListItem item = (GenomeListItem) value;
+            String displayableName = item.getDisplayableName();
+
+            comp.setToolTipText(item.getLocation());
+            if (isSelected) {
+                comp.setBackground(genomeList.getSelectionBackground());
+                comp.setForeground(genomeList.getSelectionForeground());
+                comp.setOpaque(isSelected);
+            }
+
+            if(item.hasDownloadedSequence()){
+                displayableName += LOCAL_SEQUENCE_CHAR;
+            }
+
+            comp.setText(displayableName);
+            return comp;
         }
     }
 
@@ -305,105 +400,4 @@ public class ManageGenomesDialog extends JDialog {
     private JButton okButton;
     private JButton cancelButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
-    public boolean isCancelled() {
-        return cancelled;
-    }
-
-    private int findItem(String text) {
-        int index = 0;
-        for (GenomeListItem item : allListItems) {
-            if (item.getId().equals(text) || item.getDisplayableName().equals(text)) {
-                return index;
-            }
-            index++;
-        }
-        return -1;
-
-    }
-
-    private class SimpleTransferHandler extends TransferHandler {
-        @Override
-        public int getSourceActions(JComponent c) {
-            return TransferHandler.MOVE;
-        }
-
-        @Override
-        protected Transferable createTransferable(JComponent c) {
-            return new StringSelection(IGVPreferences.generateGenomeIdString(genomeList.getSelectedValuesList()));
-        }
-
-        @Override
-        public boolean importData(TransferSupport support) {
-            if (!canImport(support)) {
-                return false;
-            }
-            JList.DropLocation dropLocation = (JList.DropLocation) support.getDropLocation();
-            int toIndex = dropLocation.getIndex();
-            String[] genomeIds;
-            try {
-                String genomeIdString = (String) support.getTransferable().getTransferData(DataFlavor.stringFlavor);
-                genomeIds = genomeIdString.split(Globals.HISTORY_DELIMITER);
-            } catch (UnsupportedFlavorException e) {
-                return false;
-            } catch (IOException e) {
-                return false;
-            }
-
-            if (genomeIds == null || genomeIds.length == 0) {
-                return false;
-            }
-
-            int numMoved = 0;
-            for (String genomeId : genomeIds) {
-                int fromIndex = findItem(genomeId);
-                if (fromIndex < 0 || fromIndex >= allListItems.size() || fromIndex == toIndex) {
-                    continue;
-                }
-                //We need to account for the fact that the proper
-                //insertion location is one smaller, once the item being moved
-                //is removed.
-                if (toIndex > fromIndex) toIndex--;
-                GenomeListItem item = allListItems.remove(fromIndex);
-                allListItems.add(toIndex, item);
-                numMoved++;
-                //Account for adding multiple items, want to add them to successive indices
-                toIndex++;
-            }
-            buildList();
-            return numMoved > 0;
-        }
-
-        @Override
-        public boolean canImport(TransferSupport support) {
-            support.setShowDropLocation(true);
-            return support.isDrop();
-        }
-    }
-
-    private class GenomeCellRenderer implements ListCellRenderer{
-        @Override
-        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-
-            JLabel comp = new JLabel(value.toString());
-
-            GenomeListItem item = (GenomeListItem) value;
-            String displayableName = item.getDisplayableName();
-
-            comp.setToolTipText(item.getLocation());
-            if (isSelected) {
-                comp.setBackground(genomeList.getSelectionBackground());
-                comp.setForeground(genomeList.getSelectionForeground());
-                comp.setOpaque(isSelected);
-            }
-
-            if(item.hasDownloadedSequence()){
-                displayableName += LOCAL_SEQUENCE_CHAR;
-            }
-
-            comp.setText(displayableName);
-            return comp;
-        }
-    }
-
 }

@@ -35,6 +35,7 @@ import org.broad.igv.cli_plugin.PluginSpecReader;
 import org.broad.igv.cli_plugin.ui.RunPlugin;
 import org.broad.igv.cli_plugin.ui.SetPluginPathDialog;
 import org.broad.igv.dev.db.DBProfileEditor;
+import org.broad.igv.event.GenomeResetEvent;
 import org.broad.igv.feature.genome.GenomeListItem;
 import org.broad.igv.feature.genome.GenomeManager;
 import org.broad.igv.ga4gh.Ga4ghAPIHelper;
@@ -138,7 +139,7 @@ public class IGVMenuBar extends JMenuBar implements IGVEventObserver {
             }
             throw new IllegalStateException("Cannot create another IGVMenuBar, use getInstance");
         }
-        UIUtilities.invokeAndWaitOnEventThread(() ->instance = new IGVMenuBar(igv));
+        UIUtilities.invokeAndWaitOnEventThread(() -> instance = new IGVMenuBar(igv));
         return instance;
     }
 
@@ -427,11 +428,10 @@ public class IGVMenuBar extends JMenuBar implements IGVEventObserver {
         }
 
 
-
         encodeMenuItem = MenuAndToolbarUtils.createMenuItem(new BrowseEncodeAction("Load from ENCODE (2012)...", KeyEvent.VK_E, igv));
         menuItems.add(encodeMenuItem);
         String genomeId = IGV.getInstance().getGenomeManager().getGenomeId();
-        encodeMenuItem.setVisible (EncodeFileBrowser.genomeSupported(genomeId));
+        encodeMenuItem.setVisible(EncodeFileBrowser.genomeSupported(genomeId));
 
 
         menuAction = new BrowseGa4ghAction("Load from Ga4gh...", KeyEvent.VK_G, igv);
@@ -605,11 +605,13 @@ public class IGVMenuBar extends JMenuBar implements IGVEventObserver {
             public void actionPerformed(ActionEvent event) {
                 ManageGenomesDialog dialog2 = new ManageGenomesDialog(IGV.getMainFrame());
                 dialog2.setVisible(true);
+
                 boolean cancelled = dialog2.isCancelled();
-                List<GenomeListItem> removedValuesList = dialog2.getRemovedValuesList();
+
 
                 if (!cancelled) {
 
+                    List<GenomeListItem> removedValuesList = dialog2.getRemovedValuesList();
                     if (removedValuesList != null && !removedValuesList.isEmpty()) {
                         try {
                             GenomeManager.getInstance().deleteDownloadedGenomes(removedValuesList);
@@ -628,10 +630,14 @@ public class IGVMenuBar extends JMenuBar implements IGVEventObserver {
                         }
                     }
 
-                    GenomeManager.getInstance().buildGenomeItemList();
+                    List<GenomeListItem> addValuesList = dialog2.getAddValuesList();
+                    if (addValuesList.size() > 0) {
+                        GenomeManager.getInstance().downloadGenomes(addValuesList);
 
-                    igv.getContentPane().getCommandBar().refreshGenomeListComboBox();
-
+                    } else {
+                        GenomeManager.getInstance().buildGenomeItemList();
+                        IGVEventBus.getInstance().post(new GenomeResetEvent());
+                    }
                 }
             }
         };
@@ -976,9 +982,8 @@ public class IGVMenuBar extends JMenuBar implements IGVEventObserver {
                 } else {
                     MessageUtils.showMessage("IGV is up to date");
                 }
-            }
-            else {
-                if(Globals.VERSION.contains("3.0_beta") || Globals.VERSION.contains("snapshot")) {
+            } else {
+                if (Globals.VERSION.contains("3.0_beta") || Globals.VERSION.contains("snapshot")) {
                     HttpUtils.getInstance().getContentsAsString(new URL(Globals.getVersionURL())).trim();
                 }
             }
@@ -1311,8 +1316,8 @@ public class IGVMenuBar extends JMenuBar implements IGVEventObserver {
     @Override
     public void receiveEvent(final Object event) {
 
-        if(event instanceof GenomeChangeEvent) {
-            UIUtilities.invokeOnEventThread(() -> encodeMenuItem.setVisible (EncodeFileBrowser.genomeSupported(((GenomeChangeEvent) event).genome.getId())));
+        if (event instanceof GenomeChangeEvent) {
+            UIUtilities.invokeOnEventThread(() -> encodeMenuItem.setVisible(EncodeFileBrowser.genomeSupported(((GenomeChangeEvent) event).genome.getId())));
         }
     }
 }
