@@ -49,6 +49,7 @@ import java.awt.*;
 import java.io.*;
 import java.util.*;
 
+import static org.broad.igv.Globals.HISTORY_DELIMITER;
 import static org.broad.igv.prefs.Constants.*;
 
 /**
@@ -203,7 +204,7 @@ public class IGVPreferences {
         if (stringProp == null) {
             return new String[0];
         } else {
-            return stringProp.split(Globals.HISTORY_DELIMITER);
+            return stringProp.split(HISTORY_DELIMITER);
         }
     }
 
@@ -781,16 +782,6 @@ public class IGVPreferences {
         HttpUtils.getInstance().updateProxySettings();
     }
 
-    public static String generateGenomeIdString(Collection<GenomeListItem> genomeListItems) {
-        String genomeString = "";
-
-        for (GenomeListItem serverItem : genomeListItems) {
-            genomeString += serverItem.getId() + Globals.HISTORY_DELIMITER;
-        }
-
-        genomeString = genomeString.substring(0, genomeString.length() - 1);
-        return genomeString;
-    }
 
     /**
      * Get the path to the CLI plugin specified by the
@@ -886,6 +877,31 @@ public class IGVPreferences {
             pw.println(entry.getValue());
         }
     }
+
+
+    // Methods to support legacy genome management code
+    public void saveGenomeIdDisplayList(Collection<GenomeListItem> genomeListItems) {
+        put(GENOME_ID_DISPLAY_LIST_KEY, generateGenomeIdString(genomeListItems));
+    }
+
+    public String[] getGenomeIdDisplayList() {
+        return getAsArray(GENOME_ID_DISPLAY_LIST_KEY);
+    }
+
+
+    public static String generateGenomeIdString(Collection<GenomeListItem> genomeListItems) {
+
+        String genomeString = "";
+
+        for (GenomeListItem serverItem : genomeListItems) {
+            genomeString += serverItem.getId() + HISTORY_DELIMITER;
+        }
+
+        genomeString = genomeString.substring(0, genomeString.length() - 1);
+        return genomeString;
+    }
+
+
 
 
 }

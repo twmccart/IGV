@@ -33,6 +33,7 @@ import org.broad.igv.Globals;
 import org.broad.igv.feature.genome.GenomeListItem;
 import org.broad.igv.feature.genome.GenomeManager;
 import org.broad.igv.prefs.IGVPreferences;
+import org.broad.igv.prefs.PreferencesManager;
 import org.broad.igv.ui.util.MessageUtils;
 
 import javax.swing.*;
@@ -43,7 +44,6 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
@@ -110,6 +110,8 @@ public class ManageGenomesDialog extends JDialog {
                 }
             }
         }
+
+        PreferencesManager.getPreferences().saveGenomeIdDisplayList(allListItems);
         cancelled = false;
         setVisible(false);
     }
