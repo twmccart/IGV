@@ -1,0 +1,2 @@
+Compile with the command `ant`
+The igv.sh script is not a product of compilation, it's copied from the /opt distribution of igv.
