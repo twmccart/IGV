@@ -2,17 +2,22 @@ This package contains command line utilities for preprocessing, computing
 feature count density (coverage),  sorting, and indexing data files.
 See also http://www.broadinstitute.org/software/igv/igvtools_commandline.
 
+***************************************************************************
+Java 8 is required for this release.  See our website for more information
+about support for Java 9 and up.
+***************************************************************************
+
 ---------------------------------------------------------------------------
 Starting with shell scripts
 ---------------------------------------------------------------------------
 The utilities are invoked from one of the following scripts:
 
-   igvtools (command line version for linux and  Mac OS 10.x)
-   igvtools_gui (gui version for linux and  Mac OS 10.x)
-   igvtools_gui.command (alternative double-clickable gui version for Mac OS 10.x)
+   igvtools (command line version for Linux and  macOS 10.x)
+   igvtools_gui (gui version for Linux and  macOS 10.x)
+   igvtools_gui.command (alternative double-clickable gui version for macOS 10.x)
 
-   igvtools.bat (command line version for windows)
-   igvtools_gui.bat (gui version for windows)
+   igvtools.bat (command line version for Windows)
+   igvtools_gui.bat (gui version for Windows)
 
 The general form of the command-line version is:
 
@@ -31,11 +36,11 @@ allows more control over java parameters, such as the maximum memory to
 allocate.  In the example below igvtools is started with 1500 MB of memory
 allocated
 
-   java -Xmx1500m  -jar igvtools.jar [command] [options][arguments]
+   java -Xmx1500m  -jar lib/igvtools.jar [command] [options][arguments]
 
 To start with a gui the command is
 
-   java -Xmx1500m  -jar igvtools.jar gui
+   java -Xmx1500m  -jar lib/igvtools.jar gui
    
 ---------------------------------------------------------------------------
 Memory settings
@@ -209,15 +214,15 @@ Options:
                 Results are saved in a separate column for .wig output, and a separate track
                 for TDF output.
 
-  --bases		Count the occurrence of each base (A,G,C,T,N). Takes no arguments.
+  --bases       Count the occurrence of each base (A,G,C,T,N). Takes no arguments.
                 Results are saved in a separate column for .wig output, and a separate track for TDF output.
   
-  --query [querystring]	Only count a specific region. Query string has syntax <chr>:<start>-<end>. e.g. chr1:100-1000.
+  --query [querystring] Only count a specific region. Query string has syntax <chr>:<start>-<end>. e.g. chr1:100-1000.
                         Input file must be indexed.
   
-  --minMapQuality [mqual]	Set the minimum mapping quality of reads to include. Default is 0.
+  --minMapQuality [mqual]   Set the minimum mapping quality of reads to include. Default is 0.
 
-  --includeDuplicates 	 Include duplicate alignments in count. Default false.  If this flag is included, duplicates
+  --includeDuplicates    Include duplicate alignments in count. Default false.  If this flag is included, duplicates
                           are counted. Takes no arguments
 
   --pairs  Compute coverage from paired alignments counting the entire insert as covered.  When using this option only
@@ -295,9 +300,9 @@ Format GCT or RES files for display. This should only be used if the file has no
 Supported input file formats are: .gct and .res
 
 Usage:
-	
-	igvtools formatexp [inputFile] [outputFile]
-	
+    
+    igvtools formatexp [inputFile] [outputFile]
+    
 ---------------------------------------------------------------------------
 Command "gui"
 ---------------------------------------------------------------------------
@@ -305,9 +310,9 @@ Command "gui"
 Start the igvtools gui
 
 Usage:
-	
-	igvtools gui
-	
+    
+    igvtools gui
+    
 ---------------------------------------------------------------------------
 Command "help"
 ---------------------------------------------------------------------------
@@ -316,8 +321,8 @@ Command "help"
 displays help on a particular command.
 
 Example:
-	
-	igvtools help index
+    
+    igvtools help index
 
  ---------------------------------------------------------------------------
  Command "version"

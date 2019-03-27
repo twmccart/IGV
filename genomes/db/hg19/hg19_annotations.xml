@@ -2,8 +2,8 @@
 <Global name="Annotations" version="1">
 
     <Category name="Genes">
-        <Resource name="Ensemble Genes"
-                  path="http://www.broadinstitute.org/igvdata/annotations/hg19/EnsemblGenes.ensGene">
+        <Resource name="Ensembl Genes"
+                  path="https://s3.amazonaws.com/igv.org.genomes/hg19/ensGene.txt.gz">
         </Resource>
         <Resource name="UCSC Genes" hyperlink="http://genome.ucsc.edu/cgi-bin/hgTrackUi?g=knownGene"
                   path="http://www.broadinstitute.org/igvdata/annotations/hg19/UCSCGenes.ucscGene">
@@ -39,8 +39,8 @@
         <!--<Resource name="COSMIC" resourceType="das" hyperlink="http://www.sanger.ac.uk/genetics/CGP/cosmic/"-->
                   <!--path="http://das.sanger.ac.uk/das/cosmic_mutations_GRCh37/features"-->
                   <!--trackLine="featureVisibilityWindow=0"/>-->
-        <Resource name="OMIM Genes" hyperlink="http://www.ncbi.nlm.nih.gov/omim"
-                  url="http://www.ncbi.nlm.nih.gov/entrez/dispomim.cgi?id=$$"
+        <Resource name="OMIM Genes" hyperlink="https://omim.org/"
+                  url=" https://omim.org/entry/$$"
                   path="http://www.broadinstitute.org/igvdata/annotations/hg19/phenotype/hg19_omim_genes.bed.gz"/>
         <Resource name="GWAS Catalog" hyperlink="http://genome.ucsc.edu/cgi-bin/hgTrackUi?g=gwasCatalog"
                   url="http://genome.ucsc.edu/cgi-bin/hgc?g=gwasCatalog&amp;i=$$"
